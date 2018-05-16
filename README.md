@@ -5,7 +5,7 @@ In React, we work with components -- classes that contain individual functions, 
 
 This empowers the creation of modular code, where units of our programs are clearly labeled and organized by being sectioned off into their own files.
 
-What's great about components, however, is that they are reusable and relatable. This means that we'll want that we'll want to make use of one component inside another file. So how do we do this? With importing and exporting!
+What's great about components, however, is that they are reusable and relatable. This means that we'll want to make use of one component inside another file. So how do we do this? With importing and exporting!
 
 We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this so that Node knows we are referencing a local module, as opposed to one found in `node_modules`, or in the global modules.
 
