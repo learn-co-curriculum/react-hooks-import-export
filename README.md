@@ -38,7 +38,7 @@ Since React applications can grow to significant sizes, we want to make sure we 
      
 In the example above we see that our components are modular (they have their own files), and that we can keep them organized this way. Now, all we have to do is figure out how to make use of the code defined in one file within another. Well, this is dirt easy to do in React! Introducing IMPORT EXPORT.
 
-[import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
+![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
 ### Import Export
 On a fundamental level, `import` and `export` enable us to use modules in other modules, which becomes increasingly important as we build out larger programs.
