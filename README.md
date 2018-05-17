@@ -72,4 +72,3 @@ ReactDOM.render(
 );
 
 ```
-You'll mostly be using this method. It's important to correctly export your components, otherwise the tests can't access the code you've written, causing them to fail!
