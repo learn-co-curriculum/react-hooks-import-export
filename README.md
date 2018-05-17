@@ -1,37 +1,136 @@
+## Introduction
+In this lesson, we'll discuss `import` and `export`, ES6 keywords that allow us to share code across multiple files within a given program.
+
+## Objectives
+1. Understand why it's important to split up our programs into smaller files (modules)
+2. Learn how `import` and `export` support our ability to build modular code
+3. Understand the different ways to export code (named exports and default exports)
+
 ## Modular Code
-As we've discussed before, maintaining single-responsibility is key to writing clean and DRY code, and React was built to support this practice.
 
-In React, we work with components -- classes that contain individual functions, or groups of functions, and that are designed to accomplish specific tasks.
+Maintaining single-responsibility is key to writing clean and DRY code, as our applications grow in size its important to separate our code into easy to read and reusable segments. This separation makes our programs easier to navigate and our code easier to debug.
 
-This empowers the creation of modular code, where units of our programs are clearly labeled and organized by being sectioned off into their own files.
-
-What's great about components, however, is that they are reusable and relatable. This means that we'll want to make use of one component inside another file. So how do we do this? With importing and exporting!
-
-We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this so that Node knows we are referencing a local module, as opposed to one found in `node_modules`, or in the global modules.
-
-### Named exports
-Named exports allow us to export several things at once. This is useful for utility modules or libraries. This is particularly helpful when we have a function or object that we want to reuse across components.
+In React, we work with components -- which can be expressed with code in multiple ways. The most common is via the React class component syntax:
 
 ```js
-// In a file called `sortingHat.js`
+class Hogwarts extends React.Component {
+  
+   render() {
+     return (
+       <div className="Hogwarts">
+         Harry. Did you put your name in the Goblet of Fire?
+       </div>
+     )
+    }
+  }
+```
 
-export let sortingHat = (student) => {
-  if (student.name === 'Hermione') {
-    return 'Gryffindor'
-  } else if (student.name === 'Luna') {
-    return 'Ravenclaw'
-  } else if (student.name === 'Draco') {
-    return 'Slytherin'
-  } else {
-    return 'Hufflepuff'
+Since React applications can grow to significant sizes, we want to make sure we keep it organized. In an effort to do just this, it's standard practice to give each of these components their own file. it is not uncommon to see a React program file tree that looks something like this:
+
+```bash
+├── README.md
+├── public
+└── src
+     ├── App.js
+     ├── Hogwarts.js
+     └── Houses.js
+``` 
+     
+In the example above we see that our components are modular (they have their own files), and that we can keep them organized this way. Now, all we have to do is figure out how to make use of the code defined in one file within another. Well, this is dirt easy to do in React! Introducing IMPORT EXPORT.
+
+![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
+
+### Import Export
+On a fundamental level, `import` and `export` enable us to use modules in other modules, which becomes increasingly important as we build out larger programs.
+
+Sectioning off our programs into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
+
+Let's look at an example of how importing/exporting can be used from a high level. Circling back on our Hogwarts file tree:
+
+```bash
+ ├── README.md
+ ├── public
+ └── src
+     ├── App.js
+     ├── Hogwarts.js
+     └── houses
+         ├── Gryffindor.js
+         ├── Slytherin.js
+         ├── Hufflepuff.js
+         └── Ravenclaw.js
+``` 
+
+Hogwarts School of Witchcraft and Wizardry has four houses that make up its student and teacher population. If we were making a react App, we might want to have the `Hogwarts` component make use of every house component. To do this, we would need to make sure to `export` the house components so they are available for `import` in the rest of our react application. The code might look like this:
+
+First, we `export`:
+
+```
+import React from 'react'
+
+export default class Gryffindor extends React.Component {
+
+  render(){
+    return(
+      <div>GRYFFINDOR, HOME TO HERMIONE GRANGER</div>
+    )
   }
 }
 ```
-```js
-// In a file in the same directory
 
-import {sortingHat} from './sortingHat'
-console.log(sortingHat('Hermione')) // prints 'Gryffindor'
+...and then, we `import`:
+
+```
+import React from 'react'
+import Gryffindor from './houses/Gryffindor'
+import Slytherin from './houses/Slytherin'
+import Ravenclaw from './houses/Ravenclaw'
+import Hufflepuff from './houses/Hufflepuff'
+
+export default class Hogwarts extends React.Component {
+  render(){
+    return(
+      <div>
+        <Gryffindor />
+        <Ravenclaw />
+        <Hufflepuff />
+        <Slytherin />
+      </div>
+    )
+  }
+}
+```
+
+We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing a local module, as opposed to one found in `node_modules`, or in the global modules.
+
+### Named exports
+Default export is great because it allows us export blocks of code from a file with minimal hassle, but what if we only want to export explicit pieces of code, like functions, from a module? Named exports allow us to export several specific things at once.
+
+```js
+// In a file called `Gryffindor.js`
+
+export function colors(){
+	console.log("Scarlet and Gold")
+}
+
+function values(){
+	console.log("Courage, Bravery, Nerve and Chivalry")					
+}
+
+ export function mascot(){
+	console.log("The Lion")	
+}
+```
+We can then use `import` to access any exported functions throughout our program.
+
+```js
+// In a file called 'Hogwarts.js'
+
+import {colors, mascot} from './houses/Gryffindor.js'
+
+colors() 
+// prints 'Scarlet and Gold'
+mascot() 
+// prints 'The Lion'
 ```
 ### Default export
 A default export means that we're exporting only one thing from a file. We use `export default` to move components from their respective files and access them from other locations in our program.
@@ -72,9 +171,4 @@ ReactDOM.render(
 );
 
 ```
-
-### Code Along: Import and Export
-
-
-
-
+You'll mostly be using this method. It's important to correctly export your components, otherwise the tests can't access the code you've written, causing them to fail!
