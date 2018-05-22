@@ -45,7 +45,7 @@ On a fundamental level, `import` and `export` enable us to use modules in other 
 
 Sectioning off our programs into smaller components is good practice, as it supports the single-responsibility principle as well as making our code easier to debug. Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
 
-Let's look at an example of how importing/exporting can be used from a high level. Circling back on our Hogwarts file tree:
+Let's look at an example of how importing/exporting can be used from a high level. Circling back to our Hogwarts file tree:
 
 ```bash
  ├── README.md
