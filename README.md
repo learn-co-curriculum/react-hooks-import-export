@@ -40,7 +40,7 @@ In the example above we see that our components are modular (they have their own
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
-### Import Export
+### Imports and Exports
 On a fundamental level, `import` and `export` enable us to use modules in other modules, which becomes increasingly important as we build out larger programs.
 
 Sectioning off our programs into smaller components is good practice, as it supports the single-responsibility principle as well as inherently reducing the number of bugs. Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
