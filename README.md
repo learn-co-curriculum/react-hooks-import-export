@@ -181,15 +181,15 @@ Default export is great because it allows us export the contents of an entire fi
 // In a file called `Gryffindor.js`
 
 export function colors(){
-	console.log("Scarlet and Gold")
+  console.log("Scarlet and Gold")
 }
 
 function values(){
-	console.log("Courage, Bravery, Nerve and Chivalry")					
+  console.log("Courage, Bravery, Nerve and Chivalry")					
 }
 
- export function mascot(){
-	console.log("The Lion")
+export function mascot(){
+  console.log("The Lion")
 }
 ```
 We can then use `import` to access any exported functions throughout our program.
