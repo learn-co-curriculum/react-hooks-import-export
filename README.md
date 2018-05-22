@@ -13,10 +13,10 @@ Maintaining single-responsibility is key to writing clean and DRY code, as our a
 In React, we work with components -- which can be expressed with code in multiple ways. The most common is via the React class component syntax:
 
 ```js
-class Hogwarts extends React.Component {
+class Hogwarts extends React.Component{
 
-   render() {
-     return (
+   render(){
+     return(
        <div className="Hogwarts">
          Harry. Did you put your name in the Goblet of Fire?
        </div>
@@ -68,7 +68,7 @@ First, we `export`:
 ```
 import React from 'react'
 
-export default class Gryffindor extends React.Component {
+export default class Gryffindor extends React.Component{
 
   render(){
     return(
@@ -87,7 +87,7 @@ import Slytherin from './houses/Slytherin'
 import Ravenclaw from './houses/Ravenclaw'
 import Hufflepuff from './houses/Hufflepuff'
 
-export default class Hogwarts extends React.Component {
+export default class Hogwarts extends React.Component{
   render(){
     return(
       <div>
@@ -141,7 +141,7 @@ We can also use `export default` to extract entire components from their respect
 // In a file called Hufflepuff.js
 import React from 'react';
 
-export default class Hufflepuf extends React.Component {
+export default class Hufflepuf extends React.Component{
   render(){
     return(
       <div>
@@ -159,7 +159,7 @@ Then, we can import the entire component to any other file in our application, u
 import React from 'react';
 import HooflePoof from './houses/Hufflpeuff.js';
 
-export default class Hogwarts extends React.Component {
+export default class Hogwarts extends React.Component{
   render(){
     return(
       <div>
@@ -205,3 +205,4 @@ mascot()
 // logs 'The Lion'
 ```
 Now we're going to go import ourselves to platform 9 3/4!!!!!!
+![import-meme](https://gph.is/18VPydC)
