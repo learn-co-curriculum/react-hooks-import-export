@@ -119,7 +119,7 @@ function whoseHouse(){
 
 export default whoseHouse;
 ```
-We can then use `import` to access the function throughout our program. Default export allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`.
+We can then use `import` to access the function throughout our program. Default export allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- this is called aliasing!
 
 ```js
 // In a file called Hogwarts.js
