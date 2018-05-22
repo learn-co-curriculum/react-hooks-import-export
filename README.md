@@ -4,7 +4,7 @@ In this lesson, we'll discuss `import` and `export`, ES6 keywords that allow us 
 ## Objectives
 1. Understand why it's important to split up our programs into smaller files (modules)
 2. Learn how `import` and `export` support our ability to build modular code
-3. Understand the different ways to export code (named exports and default exports)
+3. Understand the different ways to export code (default exports and named exports)
 
 ## Modular Code
 
