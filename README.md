@@ -65,7 +65,8 @@ Hogwarts School of Witchcraft and Wizardry has four houses that make up its stud
 
 First, we `export`:
 
-```
+```js
+// src/houses/Gryffindor.js
 import React from 'react'
 
 export default class Gryffindor extends React.Component{
@@ -80,7 +81,9 @@ export default class Gryffindor extends React.Component{
 
 ...and then, we `import`:
 
-```
+```js
+// src/Hogwarts.js
+
 import React from 'react'
 import Gryffindor from './houses/Gryffindor'
 import Slytherin from './houses/Slytherin'
@@ -109,7 +112,7 @@ We use `export default` to move the entirety of a file, whether that be a single
 To do this, we call `export default` on a reference to what we want to export. This can be done when defining the class itself such as `export default class Hogwarts extends React.Component {}` or by calling `export default Hogwarts` at the end of the file.
 
 ```js
-// In a file called `HagridsHouse.js`
+// src/houses/HagridsHouse.js
 
 import React from 'react';
 
@@ -122,7 +125,7 @@ export default whoseHouse;
 We can then use `import` to access the function throughout our program. Default export allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- this is called aliasing!
 
 ```js
-// In a file called Hogwarts.js
+// src/Hogwarts.js
 
 import whoseHouse from './house.js';
 import ReactDOM from 'react-dom';
@@ -138,7 +141,7 @@ ReactDOM.render(
 We can also use `export default` to extract entire components from their respective files, like so:
 
 ```js
-// In a file called Hufflepuff.js
+// src/houses/Hufflepuff.js
 import React from 'react';
 
 export default class Hufflepuff extends React.Component{
@@ -155,7 +158,8 @@ export default class Hufflepuff extends React.Component{
 Then, we can import the entire component to any other file in our application, using whatever naming convention that we see fit.
 
 ```js
-// In a file called Hogwarts.js
+// src/Hogwarts.js
+
 import React from 'react';
 import HooflePoof from './houses/Hufflepuff.js';
 
@@ -178,14 +182,14 @@ You'll mostly be using this method. It's important to correctly export your comp
 Default export is great because it allows us export the contents of an entire file with minimal hassle, but what if we only wanted to export explicit pieces of code, like functions, from a module? Named exports allow us to export several specific things at once.
 
 ```js
-// In a file called `Gryffindor.js`
+// src/houses/Gryffindor.js
 
 export function colors(){
   console.log("Scarlet and Gold")
 }
 
 function values(){
-  console.log("Courage, Bravery, Nerve and Chivalry")					
+  console.log("Courage, Bravery, Nerve and Chivalry")
 }
 
 export function mascot(){
@@ -195,7 +199,7 @@ export function mascot(){
 We can then use `import` to access any exported functions throughout our program.
 
 ```js
-// In a file called 'Hogwarts.js'
+// src/Hogwarts.js
 
 import {colors, mascot} from './houses/Gryffindor.js'
 
@@ -206,7 +210,7 @@ mascot()
 ```
 Now we're going to go import ourselves to platform 9 3/4!!!!!!
 
-## External Resources 
-// Understanding relative versus absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require. 
+## External Resources
+// Understanding relative versus absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require.
 
 ![import-meme](https://media.giphy.com/media/bOUnxMClWnRqo/giphy.gif)
