@@ -129,7 +129,7 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
   whoseHouse()
-  // > "HAGRID'S HOUSE!",
+  // > `HAGRID'S HOUSE!`,
   document.getElementById('root')
 );
 
