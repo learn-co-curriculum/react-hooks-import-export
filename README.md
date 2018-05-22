@@ -14,7 +14,7 @@ In React, we work with components -- which can be expressed with code in multipl
 
 ```js
 class Hogwarts extends React.Component {
-  
+
    render() {
      return (
        <div className="Hogwarts">
@@ -34,8 +34,8 @@ Since React applications can become rather large, we want to make sure we keep t
      ├── App.js
      ├── Hogwarts.js
      └── Houses.js
-``` 
-     
+```
+
 In the example above we see that our components are modular (they have their own files). Now, all we have to do is figure out how to make use of the code defined in one file within another. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT.
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
@@ -58,8 +58,8 @@ Let's look at an example of how importing/exporting can be used from a high leve
          ├── Slytherin.js
          ├── Hufflepuff.js
          ├── Ravenclaw.js
-	 └── HagridsHouse.js
-``` 
+	       └── HagridsHouse.js
+```
 
 Hogwarts School of Witchcraft and Wizardry has four houses that make up its student and teacher population. If we were making a react App, we might want to have the `Hogwarts` component make use of every house component. To do this, we would need to make sure to `export` the house components so they are available for `import` in the rest of our react application. The code might look like this:
 
@@ -189,7 +189,7 @@ function values(){
 }
 
  export function mascot(){
-	console.log("The Lion")	
+	console.log("The Lion")
 }
 ```
 We can then use `import` to access any exported functions throughout our program.
@@ -199,9 +199,9 @@ We can then use `import` to access any exported functions throughout our program
 
 import {colors, mascot} from './houses/Gryffindor.js'
 
-colors() 
+colors()
 // logs 'Scarlet and Gold'
-mascot() 
+mascot()
 // logs 'The Lion'
 ```
 Now we're going to go import ourselves to platform 9 3/4!!!!!!
