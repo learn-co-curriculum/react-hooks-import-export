@@ -58,7 +58,7 @@ Let's look at an example of how importing/exporting can be used from a high leve
          ├── Slytherin.js
          ├── Hufflepuff.js
          ├── Ravenclaw.js
-	       └── HagridsHouse.js
+	 └── HagridsHouse.js
 ```
 
 Hogwarts School of Witchcraft and Wizardry has four houses that make up its student and teacher population. If we were making a react App, we might want to have the `Hogwarts` component make use of every house component. To do this, we would need to make sure to `export` the house components so they are available for `import` in the rest of our react application. The code might look like this:
