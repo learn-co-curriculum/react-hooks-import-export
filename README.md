@@ -200,7 +200,8 @@ We can then use `import` to access any exported functions throughout our program
 import {colors, mascot} from './houses/Gryffindor.js'
 
 colors() 
-// prints 'Scarlet and Gold'
+// logs 'Scarlet and Gold'
 mascot() 
-// prints 'The Lion'
+// logs 'The Lion'
 ```
+Now we're going to go import ourselves to platform 9 3/4!!!!!!
