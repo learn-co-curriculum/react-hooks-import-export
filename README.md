@@ -1,5 +1,5 @@
 ## Introduction
-In this lesson, we'll discuss `import` and `export`, ES6 keywords that allow us to share code across multiple files within a given program.
+In this lesson we'll discuss `import` and `export`, ES6 keywords that allow us to share code across multiple files within a JavaScript application.
 
 ## Objectives
 1. Understand why it's important to split up our programs into smaller files (modules)
@@ -8,9 +8,9 @@ In this lesson, we'll discuss `import` and `export`, ES6 keywords that allow us 
 
 ## Modular Code
 
-Maintaining single-responsibility is key to writing clean and DRY code, as our applications grow in size its important to separate our code into easy to read, reusable segments. This separation makes our programs easier to navigate and our code easier to debug.
+Maintaining single-responsibility is key to writing clean and DRY code. As our applications grow in size, it's important to separate our code into easy-to-read, reusable segments. This separation makes our programs easier to navigate and our code easier to debug.
 
-In React, we work with components -- which can be expressed with code in multiple ways. The most common is via the React class component syntax:
+Using React we have available to us multiple ways to define components. The most common way uses the React class component syntax:
 
 ```js
 class Hogwarts extends React.Component{
@@ -36,7 +36,7 @@ Since React applications can become rather large, we want to make sure we keep t
      └── Houses.js
 ```
 
-In the example above we see that our components are modular (they have their own files). Now, all we have to do is figure out how to make use of the code defined in one file within another. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT.
+In the example above we see that our components are modular (i.e., they have their own files). Now, all we have to do is figure out how to access the code defined in one file within a different file. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
@@ -106,7 +106,7 @@ export default class Hogwarts extends React.Component{
 
 We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing a local module.
 
-### Default export
+### Default Export
 We use `export default` to move the entirety of a file, whether that be a single function or an entire component, and access its content from other locations in our program.
 
 To do this, we call `export default` on a reference to what we want to export. This can be done when defining the class itself such as `export default class Hogwarts extends React.Component {}` or by calling `export default Hogwarts` at the end of the file.
@@ -178,7 +178,7 @@ export default class Hogwarts extends React.Component{
 
 You'll mostly be using this method. It's important to correctly export your components, otherwise the tests can't access the code you've written, causing them to fail!
 
-### Named exports
+### Named Exports
 Default export is great because it allows us export the contents of an entire file with minimal hassle, but what if we only wanted to export explicit pieces of code, like functions, from a module? Named exports allow us to export several specific things at once.
 
 ```js
