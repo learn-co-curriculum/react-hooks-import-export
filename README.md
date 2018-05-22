@@ -104,7 +104,7 @@ export default class Hogwarts extends React.Component {
 We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing a local module.
 
 ### Default export
-A default export means that we're exporting only one thing from a file. We use `export default` to move the entirety of a file, whether that be a single function or an entire component, and access its content from other locations in our program.
+We use `export default` to move the entirety of a file, whether that be a single function or an entire component, and access its content from other locations in our program.
 
 To do this, we call `export default` on a reference to what we want to export. This can be done when defining the class itself such as `export default class Hogwarts extends React.Component {}` or by calling `export default Hogwarts` at the end of the file.
 
