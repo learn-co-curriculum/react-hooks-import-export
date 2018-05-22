@@ -141,7 +141,7 @@ We can also use `export default` to extract entire components from their respect
 // In a file called Hufflepuff.js
 import React from 'react';
 
-export default class Hufflepuf extends React.Component{
+export default class Hufflepuff extends React.Component{
   render(){
     return(
       <div>
@@ -157,7 +157,7 @@ Then, we can import the entire component to any other file in our application, u
 ```js
 // In a file called Hogwarts.js
 import React from 'react';
-import HooflePoof from './houses/Hufflpeuff.js';
+import HooflePoof from './houses/Hufflepuff.js';
 
 export default class Hogwarts extends React.Component{
   render(){
