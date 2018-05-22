@@ -104,7 +104,7 @@ export default class Hogwarts extends React.Component {
 We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing a local module.
 
 ### Default export
-A default export means that we're exporting only one thing from a file. We use `export default` to move the entirety of a file, whether that be a single function or entire component, from their respective files and access them from other locations in our program.
+A default export means that we're exporting only one thing from a file. We use `export default` to move the entirety of a file, whether that be a single function or an entire component, from their respective files and access them from other locations in our program.
 
 To do this, we call `export default` on a reference to what we want to export. This can be done when defining the class itself such as `export default class Hogwarts extends React.Component {}` or by calling `export default Hogwarts` at the end of the file.
 
@@ -114,12 +114,12 @@ To do this, we call `export default` on a reference to what we want to export. T
 import React from 'react';
 
 function whoseHouse(){
-	console.log('HAGRID'S HOUSE!')
+	console.log(`HAGRID'S HOUSE!`)
 }
 
 export default whoseHouse;
 ```
-We can then use `import` to access the function throughout our program. Default export allows us to name the exported code whatever we want when importing it. For example, `import NewFunction from './HagridsHouse.js'` will provide us with the code inside of 'HagridsHouse.js' as `import whoseHouse from './HagridsHouse.js'`.
+We can then use `import` to access the function throughout our program. Default export allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`.
 
 ```js
 // In a file called Hogwarts.js
