@@ -25,7 +25,7 @@ class Hogwarts extends React.Component {
   }
 ```
 
-Since React applications can grow to significant sizes, we want to make sure we keep it organized. In an effort to do just this, it's standard practice to give each of these components their own file. It is not uncommon to see a React program file tree that looks something like this:
+Since React applications can become rather large, we want to make sure we keep them organized. In an effort to do just this, it's standard practice to give each of these components their own file. It is not uncommon to see a React program file tree that looks something like this:
 
 ```bash
 ├── README.md
@@ -36,7 +36,7 @@ Since React applications can grow to significant sizes, we want to make sure we 
      └── Houses.js
 ``` 
      
-In the example above we see that our components are modular (they have their own files), and that we can keep them organized this way. Now, all we have to do is figure out how to make use of the code defined in one file within another. Well, this is dirt easy to do in React! Introducing IMPORT EXPORT.
+In the example above we see that our components are modular (they have their own files). Now, all we have to do is figure out how to make use of the code defined in one file within another. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT.
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
