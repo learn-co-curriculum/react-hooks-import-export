@@ -209,4 +209,4 @@ Now we're going to go import ourselves to platform 9 3/4!!!!!!
 ## External Resources 
 // Understanding relative versus absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require. 
 
-![import-meme](https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif)
+![import-meme](https://media.giphy.com/media/bOUnxMClWnRqo/giphy.gif)
