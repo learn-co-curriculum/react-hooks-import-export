@@ -25,7 +25,7 @@ class Hogwarts extends React.Component {
   }
 ```
 
-Since React applications can grow to significant sizes, we want to make sure we keep it organized. In an effort to do just this, it's standard practice to give each of these components their own file. it is not uncommon to see a React program file tree that looks something like this:
+Since React applications can grow to significant sizes, we want to make sure we keep it organized. In an effort to do just this, it's standard practice to give each of these components their own file. It is not uncommon to see a React program file tree that looks something like this:
 
 ```bash
 ├── README.md
