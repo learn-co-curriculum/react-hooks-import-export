@@ -57,7 +57,8 @@ Let's look at an example of how importing/exporting can be used from a high leve
          ├── Gryffindor.js
          ├── Slytherin.js
          ├── Hufflepuff.js
-         └── Ravenclaw.js
+         ├── Ravenclaw.js
+	 └── HagridsHouse.js
 ``` 
 
 Hogwarts School of Witchcraft and Wizardry has four houses that make up its student and teacher population. If we were making a react App, we might want to have the `Hogwarts` component make use of every house component. To do this, we would need to make sure to `export` the house components so they are available for `import` in the rest of our react application. The code might look like this:
@@ -103,40 +104,32 @@ export default class Hogwarts extends React.Component {
 We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing a local module.
 
 ### Default export
-A default export means that we're exporting only one thing from a file, in our case an entire React component. We use `export default` to move components from their respective files and access them from other locations in our program.
+A default export means that we're exporting only one thing from a file. We use `export default` to move components from their respective files and access them from other locations in our program.
 
 To do this, we call `export default` on a reference to what we want to export. This can be done when defining the class itself such as `export default class Hogwarts extends React.Component {}` or by calling `export default Hogwarts` at the end of the file.
 
 ```js
-// In a file called `hogwarts.js`
+// In a file called `HagridsHouse.js`
 
 import React from 'react';
-class Hogwarts extends React.Component {
-  constructor = (props) => {
-    super(props)
-  }
-  render() {
-    return (
-      <div className="Hogwarts">
-        <div className="students-list">
-          <p>{student.name}</p>
-          <img src={student.img} alt="student image"></img>
-        </div>
-      </div>
-    );
-  }
+
+function whoseHouse(){
+	console.log('HAGRID'S HOUSE!')
 }
-export default Hogwarts;
+
+export default whoseHouse;
 ```
-We can then use `import Hogwarts from './hogwarts'` to access the component throughout our program.
+We can then use `import whoseHouse from './HagridsHouse.js'` to access the function throughout our program. Default export allows us to name the exported code whatever we want when importing it so `import NewFunction from './HagridsHouse.js'` will provide us with the code inside of 'HagridsHouse.js'.
 
 ```js
-// In a file in the same directory
+// In a file called Hogwarts.js
 
-import Hogwarts from './hogwarts.js';
+import whoseHouse from './house.js';
 import ReactDOM from 'react-dom';
+
 ReactDOM.render(
-  <Hogwarts />,
+  whoseHouse()
+  // > "HAGRID'S HOUSE!",
   document.getElementById('root')
 );
 
