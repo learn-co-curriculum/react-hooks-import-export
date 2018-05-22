@@ -134,6 +134,44 @@ ReactDOM.render(
 );
 
 ```
+
+We can also use `export default` to extract entire components from their respective files, like so:
+
+```js
+// In a file called Hufflepuff.js
+import React from 'react';
+
+export default class Hufflepuf extends React.Component {
+  render(){
+    return(
+      <div>
+        NOBODY CARES ABOUT US
+      </div>
+    )
+  }
+}
+
+```
+Then, we can import the entire component to any other file in our application, using whatever naming convention that we see fit.
+
+```js
+// In a file called Hogwarts.js
+import React from 'react';
+import HooflePoof from './houses/Hufflpeuff.js';
+
+export default class Hogwarts extends React.Component {
+  render(){
+    return(
+      <div>
+        <HooflePoof/>
+	//> Will render `NOBODY CARES ABOUT US`
+      </div>
+    )
+  }
+}
+
+```
+
 You'll mostly be using this method. It's important to correctly export your components, otherwise the tests can't access the code you've written, causing them to fail!
 
 ### Named exports
