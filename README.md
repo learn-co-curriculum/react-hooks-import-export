@@ -215,4 +215,4 @@ Now we're going to go import ourselves to platform 9 3/4!!!!!!
 ![import-meme](https://collegecandy.files.wordpress.com/2015/02/toptenthingsonmyharrypotterbucketlist7.gif?w=639&h=235)
 
 ## External Resources
-// Understanding relative versus absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require.
+Understanding how to create absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require.
