@@ -104,7 +104,9 @@ export default class Hogwarts extends React.Component{
 }
 ```
 
-We `import` and `export` files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing a local module.
+We `import` and `export` local files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing the correct module.
+
+Notice at the top of our React files we are importing React from 'react'. This is not magic. All we are doing is referencing the React module, stored inside the node_modules folder, which our project initializes with when we run `create react app`.
 
 ### Default Export
 We use `export default` to move the entirety of a file, whether that be a single function or an entire component, and access its content from other locations in our program.
