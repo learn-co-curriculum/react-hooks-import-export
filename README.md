@@ -119,7 +119,7 @@ To do this, we call `export default` on a reference to what we want to export. T
 import React from 'react';
 
 function whoseHouse(){
-	console.log(`HAGRID'S HOUSE!`)
+  console.log(`HAGRID'S HOUSE!`)
 }
 
 export default whoseHouse;
