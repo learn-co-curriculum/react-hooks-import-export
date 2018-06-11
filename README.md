@@ -42,8 +42,7 @@ In the example above we see that our components are modular because of how they 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
 
-### Import and Export
-
+## Import and Export
 On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
 
 Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code.
@@ -114,8 +113,7 @@ Because we forgot to import the Slytherin component, but attempted to use it in 
 
 That is why it is key that we `import` and `export` local files correctly. The syntax for this is writing out the relative path to the component that we are importing, from the file that we are currently in.
 
-### export Default
-
+## Export Default
 We use `export default` to export code from a file, whether it be an entire component or an individual function.
 
 To do this, we call `export default` on what we want to export. This can be done when defining the class itself such as `export default class Hogwarts extends React.Component {}` or by calling `export default Hogwarts` at the end of the file.
@@ -189,8 +187,7 @@ export default class Hogwarts extends React.Component{
 It's important to note that we will never use `export default` on more than one function, component or variable. In React, there can only ever be one default export per file.
 
 
-### Named Exports
-
+## Named Exports
 <!-- needs rework on why named export/import is useful -->
 <!-- still think this could use some more ^  - MATT -->
 `export default` is great because it allows us to import functions, components or libraries without having to pay attention to naming conventions.
@@ -265,5 +262,4 @@ Don't forget correct syntax when importing and exporting, otherwise you will fee
 
 
 ## External Resources
-
 Understanding how to create absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require.
