@@ -225,12 +225,12 @@ export function mascot() {
 }
 ```
 
-We can then `import` specific functions from a file via identifying them by name. Let's look at an example:
+We can then `import` specific functions from a file using their original name, or by explicitly assigning them a new one. Let's look at an example:
 
 ```js
 // src/Hogwarts.js
 import { colors } from './houses/Gryffindor.js'
-import {mascot as gryffMascot} from './houses/Gryffindor.js'
+import { mascot as gryffMascot } from './houses/Gryffindor.js'
 
 colors()
 // > 'Scarlet and Gold'
@@ -243,6 +243,7 @@ values()
 ```
 
 With named exports we can also grab all of the functions from a given file in one foul swoop, like so:
+
 ```js
 // src/Hogwarts.js
 import * as GryffFunctions from './houses/Gryffindor.js'
@@ -255,6 +256,7 @@ GryffFunctions.mascot()
 
 GryffFunctions.values()
 // > 'Courage, Bravery, Nerve and Chivalry'
+
 ```
 
 
