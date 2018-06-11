@@ -124,7 +124,7 @@ That is why it is key that we `import` and `export` local files correctly. The s
 
 <!-- TODO: a quick mention on node_modules folder here. "its not uncommon for React web apps to make use of packages, or bundles of third party code (afterall, React itself is third party code). `node_modules` is a specific folder in node/react projects that holds such packages. `import x from y` will look for (y) that specific package in that folder." -->
 
-### `export Default`
+### export Default
 
 <!-- TODO: oops -->
 
