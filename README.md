@@ -129,7 +129,7 @@ function whoseHouse() {
 export default whoseHouse
 ```
 
-We can then use `import` to make use of that function elsewhere. `Export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- this is called aliasing!
+We can then use `import` to make use of that function elsewhere. `export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- which is called aliasing!
 
 Also, take a look at the first line of code in this file: `import React from 'react'`. Here, we are referencing the React library's default export. The React library is located inside of the `node_modules` folder, a specific folder in node/react projects that holds packages of third-party code.
 
@@ -184,8 +184,8 @@ export default class Hogwarts extends React.Component{
 }
 
 ```
-It's important to note that we will never use `export default` on more than one function, component or variable. In React, there can only ever be one default export per file.
-
+It's important to note that we will never use `export default` on more than one function, component or variable. There can only ever be one default export per file.
+<!-- In React, or in files everywhere -->
 
 ## Named Exports
 <!-- needs rework on why named export/import is useful -->
