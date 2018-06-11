@@ -10,7 +10,7 @@ In this lesson we'll discuss the ES6 keywords `import` and `export`, and how the
 
 
 ## Modular Code
-Maintaining single-responsibility is key to writing clean and DRY code. As our applications grow in size, it's important to separate our code into easy-to-read, reusable segments. This separation makes our programs simpler to navigate and our code quicker to debug.
+Maintaining single-responsibility is key to writing clean and DRY code. As our applications grow in size, it's important to separate our code into easy-to-read, reusable components. This separation makes our programs simpler, and less computationally expensive, as one file may be reused multiple times throughout our project.
 
 Using React, we have multiple ways to define components. The most common way uses the React class component syntax:
 
