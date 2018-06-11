@@ -118,12 +118,6 @@ Because we forgot to import the Slytherin component, but attempted to use it in 
 
 That is why it is key that we `import` and `export` local files correctly. The syntax for this is writing out the relative path of the component that we are importing, from the file that we are currently in.
 
-<!-- Also, take a look at the first line of this file. `import React from 'react'`. In this line, we importing code from a module, or library of third-party code. When we call `import React from 'rect'` we are referencing the React library, located inside the `node_modules` folder.
-
-<!-- From Brooke, moved the line abut the import React from React down to export default, since we are importing a default export from the React library, adn this section feels like it's trying to do too much -->
-
-<!-- TODO: a quick mention on node_modules folder here. "its not uncommon for React web apps to make use of packages, or bundles of third party code (afterall, React itself is third party code). `node_modules` is a specific folder in node/react projects that holds such packages. `import x from y` will look for (y) that specific package in that folder." -->
-
 ### export Default
 
 
@@ -161,7 +155,6 @@ ReactDOM.render(
 
 ```
 
-<!-- TODO: if we can export default functions, we can export default components! like so... (replace following bit) -->
 If we can `export default` functions, we can `export default` components! like so...
 
 ```js
@@ -204,6 +197,7 @@ It's important to note that we will never use `export default` on more than one 
 ### Named Exports
 
 <!-- needs rework on why named export/import is useful -->
+<!-- still think this could use some more ^  - MATT -->
 `export default` is great because it allows us to import functions, components or libraries without having to pay attention to naming conventions.
 
 Named exports, on the other hand, allow us to export several specific things at once.
