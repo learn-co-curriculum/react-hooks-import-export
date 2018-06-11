@@ -108,7 +108,7 @@ export default class Hogwarts extends React.Component {
 ```
 
 Because we forgot to import the Slytherin component, but attempted to use it in our Hogwarts render() method, our program will return the below error informing us that it does not know what the Slyherin component is.
-//> 'Slytherin' is not defined  react/jsx-no-undef
+// > 'Slytherin' is not defined  react/jsx-no-undef
 
 That is why it is key that we `import` and `export` local files correctly. The syntax for this is writing out the relative path of the component that we are importing, from the file that we are currently in.
 
