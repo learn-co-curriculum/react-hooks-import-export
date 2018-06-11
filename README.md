@@ -36,22 +36,18 @@ Since React applications can become rather large, we want to make sure we keep t
      ├── Hogwarts.js
      └── Houses.js
 ```
-<!-- added a bit more clarity here -by -->
-In the example above we see that our components are modular because of how they are organized into their own, individual files, with each file responsible for a certain piece of functionality. Now, all we have to do is figure out how to access the code defined in one file within a different file. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT!
+
+In the example above we see that our components are modular because of how they are organized into their own files, with each file responsible for a certain piece of functionality. Now, all we have to do is figure out how to access the code defined in one file within a different file. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
 
 ### Import and Export
 
-On a fundamental level, `import` and `export` enable us to use code from a modules in other locations across our apps, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
+On a fundamental level, `import` and `export` enable us to use code from a modules in other locations across our projects, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
 
-Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code. <!-- This still sounds a little weird to me -MATT -->
-
-<!--  Trying to replace this:
-Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
-
-I think it makes more sense, because error messages give you the specific line where the code is breaking, but usually one break impacts many functions rather than just the one place where the error is occurring. Needs rework though.  -->
+Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code.
+<!-- THIS STILL NEEDS WORK -by -->
 
 
 Let's look at an example of how importing/exporting can be used from a high level. Circling back to our Hogwarts file tree:
