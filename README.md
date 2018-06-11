@@ -46,7 +46,7 @@ In the example above we see that our components are modular because of how they 
 
 On a fundamental level, `import` and `export` enable us to use code from a modules in other locations across our apps, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
 
-Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code.
+Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code. <!-- This still sounds a little weird to me -MATT -->
 
 <!--  Trying to replace this:
 Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
@@ -126,7 +126,6 @@ That is why it is key that we `import` and `export` local files correctly. The s
 
 ### export Default
 
-<!-- TODO: oops -->
 
 We use `export default` to export code from a file, whether it be an entire component or an individual function.
 
