@@ -44,7 +44,7 @@ In the example above we see that our components are modular because of how they 
 
 ### Import and Export
 
-On a fundamental level, `import` and `export` enable us to use code from a modules in other locations across our projects, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
+On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
 
 Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code.
 <!-- THIS STILL NEEDS WORK -by -->
@@ -109,13 +109,12 @@ export default class Hogwarts extends React.Component {
 }
 ```
 
-Because we forgot to import the Slytherin component, but attempted to use it in our Hogwarts render() method, our program will return the below error informing us that it does not know what the Slyherin component is.
+Because we forgot to import the Slytherin component, but attempted to use it in our Hogwarts render() method, our program will return the below error informing us that it does not know what the Slytherin component is.
 `// > 'Slytherin' is not defined  react/jsx-no-undef`
 
-That is why it is key that we `import` and `export` local files correctly. The syntax for this is writing out the relative path of the component that we are importing, from the file that we are currently in.
+That is why it is key that we `import` and `export` local files correctly. The syntax for this is writing out the relative path to the component that we are importing, from the file that we are currently in.
 
 ### export Default
-
 
 We use `export default` to export code from a file, whether it be an entire component or an individual function.
 
@@ -123,13 +122,13 @@ To do this, we call `export default` on what we want to export. This can be done
 
 ```js
 // src/houses/HagridsHouse.js
-import React from 'react';
+import React from 'react'
 
 function whoseHouse() {
   console.log(`HAGRID'S HOUSE!`)
 }
 
-export default whoseHouse;
+export default whoseHouse
 ```
 
 We can then use `import` to make use of that function elsewhere. `Export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- this is called aliasing!
@@ -138,8 +137,8 @@ Also, take a look at the first line of code in this file: `import React from 're
 
 ```js
 // src/Hogwarts.js
-import whoseHouse from './house.js';
-import ReactDOM from 'react-dom';
+import whoseHouse from './house.js'
+import ReactDOM from 'react-dom'
 
 // TODO: remove reactDOM.render
 
@@ -147,7 +146,7 @@ ReactDOM.render(
   whoseHouse()
   // > `HAGRID'S HOUSE!`,
   document.getElementById('root')
-);
+)
 
 ```
 
@@ -155,7 +154,7 @@ If we can `export default` functions, we can `export default` components! like s
 
 ```js
 // src/houses/Hufflepuff.js
-import React from 'react';
+import React from 'react'
 
 export default class Hufflepuff extends React.Component{
   render() {
@@ -172,8 +171,8 @@ Then, we can import the entire component to any other file in our application, u
 
 ```js
 // src/Hogwarts.js
-import React from 'react';
-import HooflePoof from './houses/Hufflepuff.js';
+import React from 'react'
+import HooflePoof from './houses/Hufflepuff.js'
 
 export default class Hogwarts extends React.Component{
   render(){
