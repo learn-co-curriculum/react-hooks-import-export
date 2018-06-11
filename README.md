@@ -104,7 +104,7 @@ export default class Hogwarts extends React.Component {
       </div>
     )
   }
-}
+}f
 ```
 
 Because we forgot to import the Slytherin component, but attempted to use it in our Hogwarts render() method, our program will return the below error informing us that it does not know what the Slyherin component is.
