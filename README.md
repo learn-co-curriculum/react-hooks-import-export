@@ -10,10 +10,9 @@ In this lesson we'll discuss the ES6 keywords `import` and `export`, and how the
 
 
 ## Modular Code
-
 Maintaining single-responsibility is key to writing clean and DRY code. As our applications grow in size, it's important to separate our code into easy-to-read, reusable segments. This separation makes our programs simpler to navigate and our code quicker to debug.
 
-Using React, we have available to us multiple ways to define components. The most common way uses the React class component syntax:
+Using React, we have multiple ways to define components. The most common way uses the React class component syntax:
 
 ```js
 class Hogwarts extends React.Component {
@@ -38,17 +37,16 @@ Since React applications can become rather large, we want to make sure we keep t
      └── Houses.js
 ```
 
-In the example above we see that our components are modular becuase of how they are organized into their own, individual files. Now, all we have to do is figure out how to access the code defined in one file within a different file. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT!
+In the example above we see that our components are modular because of how they are organized into their own, individual files. Now, all we have to do is figure out how to access the code defined in one file within a different file. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
 
 ### Import and Export
 
-On a fundamental level, `import` and `export` enable us to use code from a modules in other locations across our apps, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file, our solution is to divide those code blocks into their own respective modules that we will call upon as they are needed.  <!-- From Matt: ^ this could be condensed but you know what im getting at --> 
+On a fundamental level, `import` and `export` enable us to use code from a modules in other locations across our apps, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
 
-<!-- TODO: does not reduce the number of bugs, but instead makes it easier to debug -->
-Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as inherently reducing the number of bugs. Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
+Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine trying to find one line that's breaking our entire program, when there are 1000 lines of code?
 
 Let's look at an example of how importing/exporting can be used from a high level. Circling back to our Hogwarts file tree:
 
@@ -92,7 +90,6 @@ export default class Gryffindor extends React.Component{
 
 import React from 'react'
 import Gryffindor from './houses/Gryffindor'
-import Slytherin from './houses/Slytherin'
 import Ravenclaw from './houses/Ravenclaw'
 import Hufflepuff from './houses/Hufflepuff'
 
@@ -110,13 +107,14 @@ export default class Hogwarts extends React.Component {
 }
 ```
 
-<!-- TODO: "if we did not import those components, but attempted to use them in our Hogwarts render() method above, our program would error because it doesn't know what Gryffindor/Ravenclaw/etc is" -->
+Because we forgot to import the Slytherin component, but attempted to use it in our Hogwarts render() method, our program will return the below error informing us that it does not know what the Slyherin component is.
+//> 'Slytherin' is not defined  react/jsx-no-undef
 
-if we did not import those components, but attempted to use them in our Hogwarts render() method above, our program would error because it doesn't know what Gryffindor/Ravenclaw/etc is.
+That is why it is key that we `import` and `export` local files correctly. The syntax for this is writing out the relative path of the component that we are importing, from the file that we are currently in.
 
-We `import` and `export` local files by declaring their relative path to the file that we are currently in. We do this to ensure that we are accurately referencing the correct file.
+<!-- Also, take a look at the first line of this file. `import React from 'react'`. In this line, we importing code from a module, or library of third-party code. When we call `import React from 'rect'` we are referencing the React library, located inside the `node_modules` folder.
 
-Notice, at the top of our React component files, we are importing React from `'react'`. This is not magic. All we are doing is referencing the React library, located inside the `node_modules` folder. Its not uncommon for React web apps to make use of packages, or bundles of third party code (afterall, React itself is third party code). `node_modules` is a specific folder in node/react projects that holds such packages. `import x from y` will look for (y) that specific package in that folder.
+<!-- From Brooke, moved the line abut the import React from React down to export default, since we are importing a default export from the React library, adn this section feels like it's trying to do too much -->
 
 <!-- TODO: a quick mention on node_modules folder here. "its not uncommon for React web apps to make use of packages, or bundles of third party code (afterall, React itself is third party code). `node_modules` is a specific folder in node/react projects that holds such packages. `import x from y` will look for (y) that specific package in that folder." -->
 
@@ -140,6 +138,8 @@ export default whoseHouse;
 ```
 
 We can then use `import` to make use of that function elsewhere. `Export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- this is called aliasing!
+
+Also, take a look at the first line of code in this file: `import React from 'react'`. Here, we are referencing the React library's default export. The React library is located inside of the `node_modules` folder, a specific folder in node/react projects that holds packages of third-party code.
 
 ```js
 // src/Hogwarts.js
@@ -186,7 +186,7 @@ export default class Hogwarts extends React.Component{
     return(
       <div>
         <HooflePoof/>
-        //> Will render `NOBODY CARES ABOUT US`, regardless that we renamed `Hufflepuff` to `HooflePoof`
+        //> Will render `NOBODY CARES ABOUT US`, regardless of the fact that we renamed `Hufflepuff` to `HooflePoof`
       </div>
     )
   }
@@ -200,7 +200,9 @@ It's important to note that we will never use `export default` on more than one 
 
 <!-- needs rework on why named export/import is useful -->
 
-`export default` is great because it allows us to TODO: FILL IN,... Named exports allow us to export several specific things at once.
+`export default` is great because it allows us to import functions, components or libraries without having to pay attention to naming conventions.
+
+Named exports allow us to export several specific things at once.
 
 ```js
 // src/houses/Gryffindor.js
@@ -234,9 +236,7 @@ values()
 // > ReferenceError: values is not defined
 ```
 
-Now we're going to go import ourselves to Platform 9 3/4!!!
-
-<!-- TODO: don't forget correct syntax when importing and exporting, otherwise you will feel like this idiot Ron. -->
+Don't forget correct syntax when importing and exporting, otherwise you will feel like this idiot Ron.
 
 ![import-meme](https://collegecandy.files.wordpress.com/2015/02/toptenthingsonmyharrypotterbucketlist7.gif?w=639&h=235)
 
@@ -244,6 +244,12 @@ Now we're going to go import ourselves to Platform 9 3/4!!!
 > what export/import do for us
 > how we export (default or not)
 > how we import (named or not)
+
+
+## Recap
+* Understand what import/export do for us
+* How we export (default or not)
+* How we import (named or not)
 
 
 ## External Resources
