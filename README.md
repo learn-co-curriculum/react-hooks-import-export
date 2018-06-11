@@ -205,10 +205,9 @@ It's important to note that we will never use `export default` on more than one 
 ### Named Exports
 
 <!-- needs rework on why named export/import is useful -->
-
 `export default` is great because it allows us to import functions, components or libraries without having to pay attention to naming conventions.
 
-Named exports allow us to export several specific things at once.
+Named exports, on the other hand, allow us to export several specific things at once.
 
 ```js
 // src/houses/Gryffindor.js
@@ -230,17 +229,34 @@ We can then `import` specific functions from a file via identifying them by name
 
 ```js
 // src/Hogwarts.js
-import { colors, mascot } from './houses/Gryffindor.js'
+import { colors } from './houses/Gryffindor.js'
+import {mascot as gryffMascot} from './houses/Gryffindor.js'
 
 colors()
 // > 'Scarlet and Gold'
 
-mascot()
+gryffMascot()
 // > 'The Lion'
 
 values()
 // > ReferenceError: values is not defined
 ```
+
+With named exports we can also grab all of the functions from a given file in one foul swoop, like so:
+```js
+// src/Hogwarts.js
+import * as GryffFunctions from './houses/Gryffindor.js'
+
+GryffFunctions.colors()
+// > 'Scarlet and Gold'
+
+GryffFunctions.mascot()
+// > 'The Lion'
+
+GryffFunctions.values()
+// > 'Courage, Bravery, Nerve and Chivalry'
+```
+
 
 Don't forget correct syntax when importing and exporting, otherwise you will feel like this idiot Ron.
 
