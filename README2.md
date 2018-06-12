@@ -38,7 +38,6 @@ class Hogwarts extends React.Component {
   }
 }
 ```
-
 <!-- Component File tree  -->
 It's standard practice to give each of these components their own file. It is not uncommon to see a React program file tree that looks something like this:
 
@@ -54,3 +53,29 @@ It's standard practice to give each of these components their own file. It is no
 
 <!-- How can we access these components throughout our programs? import/export -->
 Now, all we have to do is figure out how to access the code defined in one file within a different file. Well, this is pretty easy to do in React! Introducing IMPORT EXPORT!
+
+![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
+
+
+## Import and Export
+On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications.
+
+## `Export`
+
+### Export Default
+
+### Named Exports
+
+## `Import`
+
+### `import *`
+
+### `import {function()}`
+
+### `import defaultExport`
+
+## Recap
+<!-- Needs to be stronger than in previous README  -->
+
+## External Resources
+Understanding how to create absolute paths is outside the scope of this lab, but for further reading check out: https://coderwall.com/p/th6ssq/absolute-paths-require.
