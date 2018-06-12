@@ -219,7 +219,6 @@ export function mascot() {
   console.log("The Lion")
 }
 ```
-
 We can then `import` specific functions from a file using their original name, or by explicitly assigning them a new one. Let's look at an example:
 
 ```js

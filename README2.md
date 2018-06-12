@@ -78,24 +78,20 @@ function whoseHouse() {
 export default whoseHouse
 ```
 We can then use `import` to make use of that function elsewhere. `export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- which is called aliasing!
-
 ```js
 // src/Hogwarts.js
 import whoseHouse from './house.js'
 import ReactDOM from 'react-dom'
 
-// TODO: remove reactDOM.render
-
-ReactDOM.render(
-  whoseHouse()
-  // > `HAGRID'S HOUSE!`,
-  document.getElementById('root')
-)
-
+render() {
+  return (
+    whoseHouse()
+    // > `HAGRID'S HOUSE!`,
+    document.getElementById('root')
+  )
+}
 ```
-
 If we can `export default` functions, we can `export default` components! like so...
-
 ```js
 // src/houses/Hufflepuff.js
 import React from 'react'
@@ -135,11 +131,74 @@ One more thing about `export default`. Take a look at the first line of code in 
 ### Named Exports
 With named exports, we can export multiple pieces of code from within a module, allowing us to call on them explicitly when we `import`.
 
+Named exports, on the other hand, allow us to export several specific things at once.
+```js
+// src/houses/Gryffindor.js
+export function colors() {
+  console.log("Scarlet and Gold")
+}
+
+function values() {
+  console.log("Courage, Bravery, Nerve and Chivalry")
+}
+
+export function mascot() {
+  console.log("The Lion")
+}
+```
+We can then `import` specific functions from a file using their original name, or by explicitly assigning them a new one. Let's look at an example:
+```js
+// src/Hogwarts.js
+import * from './houses/Gryffindor.js'
+
+colors()
+// > 'Scarlet and Gold'
+
+gryffMascot()
+// > 'The Lion'
+
+values()
+// > ReferenceError: values is not defined
+```
+Since we did not explicitly export `values()` in our `Gryffindor.js` file, we were unable to have access to the function in `Hogwarts.js`.
+
 ## `Import`
+The `import` keyword is what enables us to take modules that we've exported and use them in other files throughout our applications. There are many ways to `import` with React, and the method that we use depends on what type of code we are trying to access.
 
-### `import *`
+One this that remains consistent, however, is that in order to import a module into another file, we write out the relative path from the file that we are currently in to the file that we are trying to get access to. Let's look at some examples:
 
-### `import {function()}`
+### `import * from`
+`import * from` imports all of the functions that have been exported from a given module. This syntax looks like:
+```js
+// src/Hogwarts.js
+import * as GryffFunctions from './houses/Gryffindor.js'
+
+GryffFunctions.colors()
+// > 'Scarlet and Gold'
+```
+Note: we have the option to rename the module when we `import` it, as we did above. However, this is also acceptable:
+```js
+// src/Hogwarts.js
+import * from './houses/Gryffindor.js'
+
+colors()
+// > 'Scarlet and Gold'
+```
+### `import {function()} from`
+`import {function()} from` allows us to grab a specific function by name, and use that function within the body of a new module.
+
+We're able to reference the function imported by it's previously declared name, or rename it inside of our `import` statement.
+```js
+// src/Hogwarts.js
+import { colors } from './houses/Gryffindor.js'
+import { mascot as gryffMascot } from './houses/Gryffindor.js'
+
+colors()
+// > 'Scarlet and Gold'
+
+gryffMascot()
+// > 'The Lion'
+```
 
 ### `import defaultExport`
 
