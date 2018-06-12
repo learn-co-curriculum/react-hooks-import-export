@@ -126,8 +126,6 @@ export default class Hogwarts extends React.Component{
 }
 
 ```
-One more thing about `export default`. Take a look at the first line of code in this file: `import React from 'react'`. Here, we are referencing the React library's default export. The React library is located inside of the `node_modules` folder, a specific folder in node/react projects that holds packages of third-party code.
-
 ### Named Exports
 With named exports, we can export multiple pieces of code from within a module, allowing us to call on them explicitly when we `import`.
 
@@ -201,7 +199,29 @@ gryffMascot()
 ```
 
 ### `import defaultExport`
+We are also able to `import` modules that were exported using `export default`.
+```js
+// src/Hogwarts.js
 
+import React from 'react'
+import Gryffindor from './houses/Gryffindor'
+import Ravenclaw from './houses/Ravenclaw'
+import Hufflepuff from './houses/Hufflepuff'
+
+export default class Hogwarts extends React.Component {
+  render() {
+    return (
+      <div>
+        <Gryffindor />
+        <Ravenclaw />
+        <Hufflepuff />
+        <Slytherin />
+      </div>
+    )
+  }
+}
+```
+Take a look at the first line of code in this file: `import React from 'react'`. Here, we are referencing the React library's default export. The React library is located inside of the `node_modules` folder, a specific folder in node/react projects that holds packages of third-party code.
 ## Recap
 <!-- Needs to be stronger than in previous README  -->
 
