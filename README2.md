@@ -14,13 +14,13 @@ Modular code is code that is separated into segments (modules), where each file 
 
 <!-- Why is it import  -->
 Developers separate their code into modules for many reasons:
-* Adheres to the single-responsiblity principle
+* Adhere to the single-responsiblity principle
   * Each module is responsible for accomplishing a certain piece of functionality, or adding a specific feature to the application.  
-* Makes code easy to navigate
+* Make code easy to navigate
   * Modules that are separated and clearly named make code more read-able for other developers, which is important when sharing a code base with a team.
-* Renders code easier to debug
+* Render code easier to debug
   * When errors are raised, all the code effected by that given error should be isolated in one module, making it easier to debug the code.
-* Produces clean and DRY code
+* Produce clean and DRY code
   * Modules can be reused and repurposed throughout applications, making larger applications less computationally expensive.
 
 <!-- What does that look like in React ? (Components)-->
