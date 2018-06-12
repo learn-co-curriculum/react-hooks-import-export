@@ -160,12 +160,12 @@ values()
 ```
 Since we did not explicitly export `values()` in our `Gryffindor.js` file, we were unable to have access to the function in `Hogwarts.js`.
 
-## `Import`
+## Import
 The `import` keyword is what enables us to take modules that we've exported and use them in other files throughout our applications. There are many ways to `import` with React, and the method that we use depends on what type of code we are trying to access.
 
 One this that remains consistent, however, is that in order to import a module into another file, we write out the relative path from the file that we are currently in to the file that we are trying to get access to. Let's look at some examples:
 
-### `import * from`
+### import * from
 `import * from` imports all of the functions that have been exported from a given module. This syntax looks like:
 ```js
 // src/Hogwarts.js
@@ -182,7 +182,7 @@ import * from './houses/Gryffindor.js'
 colors()
 // > 'Scarlet and Gold'
 ```
-### `import {function()} from`
+### import {function()} from
 `import {function()} from` allows us to grab a specific function by name, and use that function within the body of a new module.
 
 We're able to reference the function imported by it's previously declared name, or rename it inside of our `import` statement.
@@ -198,7 +198,7 @@ gryffMascot()
 // > 'The Lion'
 ```
 
-### `import defaultExport`
+### import defaultExport
 We are also able to `import` modules that were exported using `export default`.
 ```js
 // src/Hogwarts.js
