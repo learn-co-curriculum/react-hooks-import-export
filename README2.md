@@ -58,13 +58,82 @@ Now, all we have to do is figure out how to access the code defined in one file 
 
 
 ## Import and Export
-On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications.
+On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications. Let's look at how we can do this:
 
 ## `Export`
+Exporting a component, or module of code, allows us to call upon that `export` in other files, and use the embedded code within other modules. There are two ways to `export` code in JavaScript: we can use the `export default` command <!-- is command the right word here?  --> or we can explicitly name our exports.
 
 ### Export Default
+We can only use `export default` once per module; however, the syntax allows us to disregard naming conventions when we want to import the given module.
+
+For example:
+```js
+// src/houses/HagridsHouse.js
+import React from 'react'
+
+function whoseHouse() {
+  console.log(`HAGRID'S HOUSE!`)
+}
+
+export default whoseHouse
+```
+We can then use `import` to make use of that function elsewhere. `export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'`-- which is called aliasing!
+
+```js
+// src/Hogwarts.js
+import whoseHouse from './house.js'
+import ReactDOM from 'react-dom'
+
+// TODO: remove reactDOM.render
+
+ReactDOM.render(
+  whoseHouse()
+  // > `HAGRID'S HOUSE!`,
+  document.getElementById('root')
+)
+
+```
+
+If we can `export default` functions, we can `export default` components! like so...
+
+```js
+// src/houses/Hufflepuff.js
+import React from 'react'
+
+export default class Hufflepuff extends React.Component{
+  render() {
+    return (
+      <div>
+        NOBODY CARES ABOUT US
+      </div>
+    )
+  }
+}
+```
+
+Then, we can import the entire component to any other file in our application, using whatever naming convention that we see fit:
+
+```js
+// src/Hogwarts.js
+import React from 'react'
+import HooflePoof from './houses/Hufflepuff.js'
+
+export default class Hogwarts extends React.Component{
+  render(){
+    return(
+      <div>
+        <HooflePoof/>
+        //> Will render `NOBODY CARES ABOUT US`, regardless of the fact that we renamed `Hufflepuff` to `HooflePoof`
+      </div>
+    )
+  }
+}
+
+```
+One more thing about `export default`. Take a look at the first line of code in this file: `import React from 'react'`. Here, we are referencing the React library's default export. The React library is located inside of the `node_modules` folder, a specific folder in node/react projects that holds packages of third-party code.
 
 ### Named Exports
+With named exports, we can export multiple pieces of code from within a module, allowing us to call on them explicitly when we `import`.
 
 ## `Import`
 
