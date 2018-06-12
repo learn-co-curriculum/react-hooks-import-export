@@ -8,11 +8,21 @@ In this lesson we'll discuss the ES6 keywords `import` and `export`, and how the
 2. Learn how `import` and `export` support our ability to build modular code
 3. Understand the different ways to import and export code
 
-
 ## Modular Code
+<!-- BY EDITS: -->
+<!-- Modular code is code that is separated into segments (modules), where each file is responsible for a feature or specific functionality.
+
+This fragmentation of our code makes applications cleaner and DRY-er. Why? Because we are able to reuse blocks of code in multiple places, in turn making our applications less computationally expensive. Additionally, the modular architecture makes our code easier to debug, because we can isolate all of the functions effected by any given error in one file.
+
+React makes the modularization of applications really easy, by introducing the component structure. -->
+
+<!-- What existed before:  -->
 Maintaining single-responsibility is key to writing clean and DRY code. As our applications grow in size, it's important to separate our code into easy-to-read, reusable components. This separation makes our programs simpler, and less computationally expensive, as one file may be reused multiple times throughout our project.
 
 Using React, we have multiple ways to define components. The most common way uses the React class component syntax:
+
+
+
 
 ```js
 class Hogwarts extends React.Component {
@@ -46,7 +56,7 @@ In the example above we see that our components are modular because of how they 
 On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications. As our programs grow in complexity, so do the file structures that we use to read and navigate them. You can imagine that a large application consisting of thousands of lines of code might be hard to navigate if all of its functions and components live within the same file! So, our solution is to divide those code blocks into their own respective modules that we can call upon as they are needed.  
 
 Sectioning off our code into smaller components is good practice, as it supports the single-responsibility principle as well as makes our code easier to debug. Can you imagine how much easier it would be to fix a bug when you only have to look at the code that the error directly impacts, rather than dig through thousands of lines to find all of the places where the error may be breaking our code.
-<!-- THIS STILL NEEDS WORK -by -->
+<!-- Don't think we need the above - BY -->
 
 
 Let's look at an example of how importing/exporting can be used from a high level. Circling back to our Hogwarts file tree:
@@ -185,7 +195,7 @@ export default class Hogwarts extends React.Component{
 
 ```
 It's important to note that we will never use `export default` on more than one function, component or variable. There can only ever be one default export per file.
-<!-- In React, or in files everywhere -->
+<!-- In React, or in files eve -->
 
 ## Named Exports
 <!-- needs rework on why named export/import is useful -->
