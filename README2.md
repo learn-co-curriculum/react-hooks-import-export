@@ -60,8 +60,8 @@ Now, all we have to do is figure out how to access the code defined in one file 
 ## Import and Export
 On a fundamental level, `import` and `export` enable us to use code from one module in other locations across our projects, which becomes increasingly important as we build out larger applications. Let's look at how we can do this:
 
-## `Export`
-Exporting a component, or module of code, allows us to call upon that `export` in other files, and use the embedded code within other modules. There are two ways to `export` code in JavaScript: we can use the `export default` command <!-- is command the right word here?  --> or we can explicitly name our exports.
+## Export
+Exporting a component, or module of code, allows us to call upon that `export` in other files, and use the embedded code within other modules. There are two ways to `export` code in JavaScript: we can use the `export default` syntax <!-- is command the right word here?  --> or we can explicitly name our exports.
 
 ### Export Default
 We can only use `export default` once per module; however, the syntax allows us to disregard naming conventions when we want to import the given module.
@@ -160,12 +160,12 @@ values()
 ```
 Since we did not explicitly export `values()` in our `Gryffindor.js` file, we were unable to have access to the function in `Hogwarts.js`.
 
-## `Import`
-The `import` keyword is what enables us to take modules that we've exported and use them in other files throughout our applications. There are many ways to `import` with React, and the method that we use depends on what type of code we are trying to access.
+## Import
+The `import` keyword is what enables us to take modules that we've exported and use them in other files throughout our applications. There are many ways to `import` with React, and the method that we use depends on what type of code we are trying to access and how we exported it.
 
 One this that remains consistent, however, is that in order to import a module into another file, we write out the relative path from the file that we are currently in to the file that we are trying to get access to. Let's look at some examples:
 
-### `import * from`
+### import * from
 `import * from` imports all of the functions that have been exported from a given module. This syntax looks like:
 ```js
 // src/Hogwarts.js
@@ -182,7 +182,7 @@ import * from './houses/Gryffindor.js'
 colors()
 // > 'Scarlet and Gold'
 ```
-### `import {function()} from`
+### import {function()} from
 `import {function()} from` allows us to grab a specific function by name, and use that function within the body of a new module.
 
 We're able to reference the function imported by it's previously declared name, or rename it inside of our `import` statement.
@@ -198,7 +198,7 @@ gryffMascot()
 // > 'The Lion'
 ```
 
-### `import defaultExport`
+### import defaultExport
 We are also able to `import` modules that were exported using `export default`.
 ```js
 // src/Hogwarts.js
