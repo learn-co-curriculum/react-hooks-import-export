@@ -35,7 +35,6 @@ Developers separate their code into modules for many reasons:
 React makes the modularization of code easy by introducing the component
 structure.
 
-<!-- Create react component -->
 ```js
 class Hogwarts extends React.Component {
   render() {
@@ -48,7 +47,8 @@ class Hogwarts extends React.Component {
 }
 ```
 
-It's standard practice to give each of these components their own file. It is not uncommon to see a React program file tree that looks something like this:
+It's standard practice to give each of these components their own file. It is
+not uncommon to see a React program file tree that looks something like this:
 
 ```bash
 ├── README.md
@@ -59,7 +59,7 @@ It's standard practice to give each of these components their own file. It is no
      └── Houses.js
 ```
 
-With our components seperated in their own files, all we have to do is figure
+With our components separated in their own files, all we have to do is figure
 out how to access the code defined in one file within a different file. Well,
 this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
@@ -67,18 +67,27 @@ this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
 
 ## Import and Export
-On a simplified level, `import` and `export` enable us to use code from one file in other locations across our projects, which becomes increasingly important as we build out larger applications. Let's look at how we can do this:
+
+On a simplified level, `import` and `export` enable us to use code from one file
+in other locations across our projects, which becomes increasingly important as
+we build out larger applications. Let's look at how we can do this:
 
 
 #### Export
-Exporting a component, or module of code, allows us to call upon that `export` in other files, and use the embedded code within other modules. There are two ways to `export` code in JavaScript: we can use the `export default` syntax <!-- is command the right word here?  --> or we can explicitly name our exports.
+
+Exporting a component, or module of code, allows us to call upon that `export`
+in other files, and use the embedded code within other modules. There are two
+ways to `export` code in JavaScript: we can use the `export default` syntax or
+we can explicitly name our exports.
 
 
 ###### Export Default
+
 We can only use `export default` once per module. The syntax allows us to
 disregard naming conventions when we want to import the given module.
 
 For example:
+
 ```js
 // src/houses/HagridsHouse.js
 import React from 'react'
@@ -89,7 +98,12 @@ function whoseHouse() {
 
 export default whoseHouse
 ```
-We can then use `import` to make use of that function elsewhere. `export default` allows us to name the exported code whatever we want when importing it. For example, `import nameThisAnything from './HagridsHouse.js'` will provide us with the same code as `import whoseHouse from './HagridsHouse.js'` -- which is called aliasing!
+
+We can then use `import` to make use of that function elsewhere. `export
+default` allows us to name the exported code whatever we want when importing it.
+For example, `import nameThisAnything from './HagridsHouse.js'` will provide us
+with the same code as `import whoseHouse from './HagridsHouse.js'` -- which is
+called aliasing!
 
 ```js
 // src/Hogwarts.js
@@ -105,7 +119,8 @@ render() {
 }
 ```
 
-If we can `export default` functions, we can `export default` components! like so...
+If we can `export default` functions, we can `export default` components! like
+so...
 
 ```js
 // src/houses/Hufflepuff.js
@@ -122,7 +137,8 @@ export default class Hufflepuff extends React.Component{
 }
 ```
 
-Then, we can import the entire component to any other file in our application, using whatever naming convention that we see fit:
+Then, we can import the entire component to any other file in our application,
+using whatever naming convention that we see fit:
 
 ```js
 // src/Hogwarts.js
@@ -145,9 +161,11 @@ export default class Hogwarts extends React.Component{
 
 ###### Named Exports
 
-With named exports, we can export multiple pieces of code from within a module, allowing us to call on them explicitly when we `import`.
+With named exports, we can export multiple pieces of code from within a module,
+allowing us to call on them explicitly when we `import`.
 
-Named exports, on the other hand, allow us to export several specific things at once:
+Named exports, on the other hand, allow us to export several specific things at
+once:
 
 ```js
 // src/houses/Gryffindor.js
@@ -164,7 +182,8 @@ export function mascot() {
 }
 ```
 
-We can then `import` specific exports from a file using their original name, or by explicitly assigning them a new one. Let's look at an example:
+We can then `import` specific exports from a file using their original name, or
+by explicitly assigning them a new one. Let's look at an example:
 
 ```js
 // src/Hogwarts.js
@@ -186,14 +205,18 @@ unable to have access to the function in `Hogwarts.js`.
 
 ## Import
 
-The `import` keyword is what enables us to take modules that we've exported and use them in other files throughout our applications. There are many ways to `import` with React, and the method that we use depends on what type of code we are trying to access and how we exported it.
+The `import` keyword is what enables us to take modules that we've exported and
+use them in other files throughout our applications. There are many ways to
+`import` with React, and the method that we use depends on what type of code we
+are trying to access and how we exported it.
 
 In order to import a module into another file, we write out the relative path to
 the file that we are trying to get access to. Let's look at some examples:
 
 #### import * from
 
-`import * from` imports all of the functions that have been exported from a given module. This syntax looks like:
+`import * from` imports all of the functions that have been exported from a
+given module. This syntax looks like:
 
 ```js
 // src/Hogwarts.js
@@ -217,9 +240,11 @@ colors()
 
 #### import {function()} from
 
-`import {function()} from` allows us to grab a specific function by name, and use that function within the body of a new module.
+`import {function()} from` allows us to grab a specific function by name, and
+use that function within the body of a new module.
 
-We're able to reference the function imported by it's previously declared name, or rename it inside of our `import` statement.
+We're able to reference the function imported by it's previously declared name,
+or rename it inside of our `import` statement.
 
 ```js
 // src/Hogwarts.js
@@ -266,7 +291,10 @@ many Node projects that holds packages of third-party code.
 
 ## Recap
 
-`import` and `export` enable us to keep code modular, and use it across different files. In addition to being able to `import` and `export` default functions, we can rename and alias `import`s, as well as reference Node Modules that are in our project.
+`import` and `export` enable us to keep code modular, and use it across
+different files. In addition to being able to `import` and `export` default
+functions, we can rename and alias `import`s, as well as reference Node Modules
+that are in our project.
 
 [MDN Import Documentation][import]  
 [MDN Export Documentation][export] 
