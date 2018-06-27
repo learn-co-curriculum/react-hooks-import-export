@@ -1,18 +1,15 @@
 # React Modular Code
 
-
 ## Introduction
 
 In this lesson we'll discuss the ES6 keywords `import` and `export` and how they
 allow us to share JavaScript code across multiple files.
-
 
 ## Objectives
 
 1. Understand why it's important to split up our code into smaller files
 2. Learn how `import` and `export` support our ability to build modular code
 3. Understand the different ways to import and export code
-
 
 ## Modular Code
 
@@ -25,10 +22,9 @@ Developers separate their code into modules for many reasons:
 * **Easier to navigate**
   * Modules that are separated and clearly named make code more read-able for other developers
 * **Easier to debug**
-  * Bugs have less toom to hide in isolated, contained code
+  * Bugs have less room to hide in isolated, contained code
 * **Produce clean and DRY code**
   * Modules can be reused and repurposed throughout applications
-
 
 ## Modularizing React Code
 
@@ -70,7 +66,7 @@ this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
 On a simplified level, `import` and `export` enable us to use code from one file
 in other locations across our projects, which becomes increasingly important as
-we build out larger applications. Let's look at how we can do this:
+we build out larger applications. Let's look at how we can do this.
 
 
 #### Export
@@ -158,6 +154,22 @@ export default class Hogwarts extends React.Component{
 
 ```
 
+You will commonly see a slightly different way of writing this:
+
+```js
+// src/Hogwarts.js
+import React from 'react'
+import HooflePoof from './houses/Hufflepuff.js'
+
+class Hogwarts extends React.Component{
+  ...
+}
+
+export default Hogwarts
+```
+
+Moving the `export default` to the bottom can make it easier to find exactly
+what a file is exporting.
 
 ###### Named Exports
 
@@ -177,7 +189,7 @@ function values() {
   console.log("Courage, Bravery, Nerve and Chivalry")
 }
 
-export function mascot() {
+export function gryffMascot() {
   console.log("The Lion")
 }
 ```
@@ -196,11 +208,34 @@ gryffMascot()
 // > 'The Lion'
 
 values()
-// > ReferenceError: values is not defined 
+// > ReferenceError: values is not defined
 ```
 
 Since we did not explicitly export `values` in our `Gryffindor.js` file, we were
-unable to have access to the function in `Hogwarts.js`. 
+unable to have access to the function in `Hogwarts.js`.
+
+We can also move named exports to the bottom of a file:
+
+```js
+// src/houses/Gryffindor.js
+function colors() {
+  console.log("Scarlet and Gold")
+}
+
+function values() {
+  console.log("Courage, Bravery, Nerve and Chivalry")
+}
+
+function gryffMascot() {
+  console.log("The Lion")
+}
+
+export {
+  colors,
+  values,
+  gryffMascot
+}
+```
 
 
 ## Import
@@ -297,7 +332,7 @@ functions, we can rename and alias `import`s, as well as reference Node Modules
 that are in our project.
 
 [MDN Import Documentation][import]  
-[MDN Export Documentation][export] 
+[MDN Export Documentation][export]
 
 [import]: https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/import
 [export]: https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
