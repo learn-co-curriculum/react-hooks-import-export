@@ -289,7 +289,7 @@ import { mascot as gryffMascot } from './houses/Gryffindor.js'
 colors()
 // > 'Scarlet and Gold'
 
-gryffMascot()
+mascot()
 // > 'The Lion'
 ```
 
