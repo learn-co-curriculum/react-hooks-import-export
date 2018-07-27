@@ -278,7 +278,7 @@ colors()
 `import {function()} from` allows us to grab a specific function by name, and
 use that function within the body of a new module.
 
-We're able to reference the function imported by it's previously declared name,
+We're able to reference the function imported by its previously declared name,
 or rename it inside of our `import` statement.
 
 ```js
