@@ -17,8 +17,10 @@ Modular code is code that is separated into segments (modules), where each file
 is responsible for a feature or specific functionality.
 
 Developers separate their code into modules for many reasons:
+
 * **Adhere to the single-responsiblity principle**
-  * Each module is responsible for accomplishing a certain piece of functionality, or adding a specific feature to the application
+  * Each module is responsible for accomplishing a certain piece of functionality,
+  or adding a specific feature to the application
 * **Easier to navigate**
   * Modules that are separated and clearly named make code more read-able for other developers
 * **Easier to debug**
@@ -212,7 +214,8 @@ values()
 ```
 
 Since we did not explicitly export `values` in our `Gryffindor.js` file, we were
-unable to have access to the function in `Hogwarts.js`.
+unable to have access to the function in `Hogwarts.js`. Other functions
+_within_ `Hogwarts.js` can still call `values`, though.
 
 We can also move named exports to the bottom of a file:
 
@@ -222,7 +225,7 @@ function colors() {
   console.log("Scarlet and Gold")
 }
 
-function values() {
+values() {
   console.log("Courage, Bravery, Nerve and Chivalry")
 }
 
@@ -232,7 +235,6 @@ function gryffMascot() {
 
 export {
   colors,
-  values,
   gryffMascot
 }
 ```
@@ -275,11 +277,24 @@ colors()
 
 #### import {function()} from
 
-`import {function()} from` allows us to grab a specific function by name, and
+`import { function() } from` allows us to grab a specific function by name, and
 use that function within the body of a new module.
 
-We're able to reference the function imported by its previously declared name,
-or rename it inside of our `import` statement.
+We're able to reference the function imported by its previously declared name:
+
+```js
+// src/Hogwarts.js
+import { colors } from './houses/Gryffindor.js'
+import { gryffMascot } from './houses/Gryffindor.js'
+
+colors()
+// > 'Scarlet and Gold'
+
+gryffMascot()
+// > 'The Lion'
+```
+
+...or rename it inside of our `import` statement:
 
 ```js
 // src/Hogwarts.js
