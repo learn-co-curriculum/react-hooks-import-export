@@ -7,9 +7,9 @@ allow us to share JavaScript code across multiple files.
 
 ## Objectives
 
-1. Understand why it's important to split up our code into smaller files
-2. Learn how `import` and `export` support our ability to build modular code
-3. Understand the different ways to import and export code
+1.  Understand why it's important to split up our code into smaller files
+2.  Learn how `import` and `export` support our ability to build modular code
+3.  Understand the different ways to import and export code
 
 ## Modular Code
 
@@ -18,15 +18,16 @@ is responsible for a feature or specific functionality.
 
 Developers separate their code into modules for many reasons:
 
-* **Adhere to the single-responsiblity principle**
-  * Each module is responsible for accomplishing a certain piece of functionality,
-  or adding a specific feature to the application
-* **Easier to navigate**
-  * Modules that are separated and clearly named make code more read-able for other developers
-* **Easier to debug**
-  * Bugs have less room to hide in isolated, contained code
-* **Produce clean and DRY code**
-  * Modules can be reused and repurposed throughout applications
+- **Adhere to the single-responsiblity principle**
+  - Each module is responsible for accomplishing a certain piece of
+    functionality, or adding a specific feature to the application
+- **Easier to navigate**
+  - Modules that are separated and clearly named make code more read-able for
+    other developers
+- **Easier to debug**
+  - Bugs have less room to hide in isolated, contained code
+- **Produce clean and DRY code**
+  - Modules can be reused and repurposed throughout applications
 
 ## Modularizing React Code
 
@@ -35,13 +36,13 @@ structure.
 
 ```js
 class Hogwarts extends React.Component {
-  render() {
-    return (
-      <div className="Hogwarts">
-        "Harry. Did you put your name in the Goblet of Fire?"
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="Hogwarts">
+				"Harry. Did you put your name in the Goblet of Fire?"
+			</div>
+		);
+	}
 }
 ```
 
@@ -63,13 +64,11 @@ this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
 ![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
 
-
 ## Import and Export
 
 On a simplified level, `import` and `export` enable us to use code from one file
 in other locations across our projects, which becomes increasingly important as
 we build out larger applications. Let's look at how we can do this.
-
 
 #### Export
 
@@ -77,7 +76,6 @@ Exporting a component, or module of code, allows us to call upon that `export`
 in other files, and use the embedded code within other modules. There are two
 ways to `export` code in JavaScript: we can use the `export default` syntax or
 we can explicitly name our exports.
-
 
 ###### Export Default
 
@@ -88,24 +86,24 @@ For example:
 
 ```js
 // src/houses/HagridsHouse.js
-import React from 'react'
+import React from 'react';
 
 function whoseHouse() {
-  console.log(`HAGRID'S HOUSE!`)
+	console.log(`HAGRID'S HOUSE!`);
 }
 
-export default whoseHouse
+export default whoseHouse;
 ```
 
-We can then use `import` to make use of that function elsewhere. `export
-default` allows us to name the exported code whatever we want when importing it.
-For example, `import nameThisAnything from './HagridsHouse.js'` will provide us
-with the same code as `import whoseHouse from './HagridsHouse.js'` -- which is
-called aliasing!
+We can then use `import` to make use of that function elsewhere.
+`export default` allows us to name the exported code whatever we want when
+importing it. For example, `import nameThisAnything from './HagridsHouse.js'`
+will provide us with the same code as
+`import whoseHouse from './HagridsHouse.js'` -- which is called aliasing!
 
 ```js
 // src/Hogwarts.js
-import whoseHouse from './house.js'
+import whoseHouse from './HagridsHouse.js'
 import ReactDOM from 'react-dom'
 
 render() {
@@ -122,16 +120,12 @@ so...
 
 ```js
 // src/houses/Hufflepuff.js
-import React from 'react'
+import React from 'react';
 
-export default class Hufflepuff extends React.Component{
-  render() {
-    return (
-      <div>
-        NOBODY CARES ABOUT US
-      </div>
-    )
-  }
+export default class Hufflepuff extends React.Component {
+	render() {
+		return <div>NOBODY CARES ABOUT US</div>;
+	}
 }
 ```
 
@@ -140,20 +134,20 @@ using whatever naming convention that we see fit:
 
 ```js
 // src/Hogwarts.js
-import React from 'react'
-import HooflePoof from './houses/Hufflepuff.js'
+import React from 'react';
+import HooflePoof from './houses/Hufflepuff.js';
 
-export default class Hogwarts extends React.Component{
-  render(){
-    return(
-      <div>
-        <HooflePoof/>
-        //> Will render `NOBODY CARES ABOUT US`, even though we renamed `Hufflepuff` to `HooflePoof`
-      </div>
-    )
-  }
+export default class Hogwarts extends React.Component {
+	render() {
+		return (
+			<div>
+				<HooflePoof />
+				//> Will render `NOBODY CARES ABOUT US`, even though we renamed `Hufflepuff`
+				to `HooflePoof`
+			</div>
+		);
+	}
 }
-
 ```
 
 You will commonly see a slightly different way of writing this:
@@ -184,15 +178,15 @@ once:
 ```js
 // src/houses/Gryffindor.js
 export function colors() {
-  console.log("Scarlet and Gold")
+	console.log('Scarlet and Gold');
 }
 
 function values() {
-  console.log("Courage, Bravery, Nerve and Chivalry")
+	console.log('Courage, Bravery, Nerve and Chivalry');
 }
 
 export function gryffMascot() {
-  console.log("The Lion")
+	console.log('The Lion');
 }
 ```
 
@@ -239,7 +233,6 @@ export {
 }
 ```
 
-
 ## Import
 
 The `import` keyword is what enables us to take modules that we've exported and
@@ -250,16 +243,16 @@ are trying to access and how we exported it.
 In order to import a module into another file, we write out the relative path to
 the file that we are trying to get access to. Let's look at some examples:
 
-#### import * from
+#### import \* from
 
 `import * from` imports all of the functions that have been exported from a
 given module. This syntax looks like:
 
 ```js
 // src/Hogwarts.js
-import * as GryffFunctions from './houses/Gryffindor.js'
+import * as GryffFunctions from './houses/Gryffindor.js';
 
-GryffFunctions.colors()
+GryffFunctions.colors();
 // > 'Scarlet and Gold'
 ```
 
@@ -274,7 +267,6 @@ colors()
 // > 'Scarlet and Gold'
 ```
 
-
 #### import {function()} from
 
 `import { function() } from` allows us to grab a specific function by name, and
@@ -284,13 +276,13 @@ We're able to reference the function imported by its previously declared name:
 
 ```js
 // src/Hogwarts.js
-import { colors } from './houses/Gryffindor.js'
-import { gryffMascot } from './houses/Gryffindor.js'
+import { colors } from './houses/Gryffindor.js';
+import { gryffMascot } from './houses/Gryffindor.js';
 
-colors()
+colors();
 // > 'Scarlet and Gold'
 
-gryffMascot()
+gryffMascot();
 // > 'The Lion'
 ```
 
@@ -298,38 +290,37 @@ gryffMascot()
 
 ```js
 // src/Hogwarts.js
-import { colors } from './houses/Gryffindor.js'
-import { mascot as gryffMascot } from './houses/Gryffindor.js'
+import { colors } from './houses/Gryffindor.js';
+import { mascot as gryffMascot } from './houses/Gryffindor.js';
 
-colors()
+colors();
 // > 'Scarlet and Gold'
 
-mascot()
+mascot();
 // > 'The Lion'
 ```
-
 
 ## Importing Node Modules
 
 ```js
 // src/Hogwarts.js
 
-import React from 'react'
-import Gryffindor from './houses/Gryffindor'
-import Ravenclaw from './houses/Ravenclaw'
-import Hufflepuff from './houses/Hufflepuff'
+import React from 'react';
+import Gryffindor from './houses/Gryffindor';
+import Ravenclaw from './houses/Ravenclaw';
+import Hufflepuff from './houses/Hufflepuff';
 
 export default class Hogwarts extends React.Component {
-  render() {
-    return (
-      <div>
-        <Gryffindor />
-        <Ravenclaw />
-        <Hufflepuff />
-        <Slytherin />
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div>
+				<Gryffindor />
+				<Ravenclaw />
+				<Hufflepuff />
+				<Slytherin />
+			</div>
+		);
+	}
 }
 ```
 
@@ -337,7 +328,6 @@ Take a look at the first line of code in this file: `import React from 'react'`.
 Here, we are referencing the React library's default export. The React library
 is located inside of the `node_modules` directory, a specific folder in
 many Node projects that holds packages of third-party code.
-
 
 ## Recap
 
