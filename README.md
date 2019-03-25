@@ -22,7 +22,7 @@ Developers separate their code into modules for many reasons:
   - Each module is responsible for accomplishing a certain piece of
     functionality, or adding a specific feature to the application
 - **Easier to navigate**
-  - Modules that are separated and clearly named make code more read-able for
+  - Modules that are separated and clearly named make code more readable for
     other developers
 - **Easier to debug**
   - Bugs have less room to hide in isolated, contained code
@@ -172,8 +172,7 @@ what a file is exporting.
 With named exports, we can export multiple pieces of code from within a module,
 allowing us to call on them explicitly when we `import`.
 
-Named exports, on the other hand, allow us to export several specific things at
-once:
+Named exports allow us to export several specific things at once:
 
 ```js
 // src/houses/Gryffindor.js
@@ -291,7 +290,7 @@ gryffMascot();
 ```js
 // src/Hogwarts.js
 import { colors } from './houses/Gryffindor.js';
-import { mascot as gryffMascot } from './houses/Gryffindor.js';
+import { gryffMascot as mascot } from './houses/Gryffindor.js';
 
 colors();
 // > 'Scarlet and Gold'
