@@ -218,7 +218,7 @@ function colors() {
   console.log("Scarlet and Gold")
 }
 
-values() {
+function values() {
   console.log("Courage, Bravery, Nerve and Chivalry")
 }
 
