@@ -308,6 +308,7 @@ import React from 'react';
 import Gryffindor from './houses/Gryffindor';
 import Ravenclaw from './houses/Ravenclaw';
 import Hufflepuff from './houses/Hufflepuff';
+import Slytherin from './houses/Slytherin';
 
 export default class Hogwarts extends React.Component {
 	render() {
