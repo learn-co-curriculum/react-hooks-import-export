@@ -143,7 +143,7 @@ export default class Hogwarts extends React.Component {
 			<div>
 				<HooflePoof />
 				//> Will render `NOBODY CARES ABOUT US`, even though we renamed `Hufflepuff`
-				to `HooflePoof`
+				// to `HooflePoof`
 			</div>
 		);
 	}
