@@ -62,8 +62,6 @@ With our components separated in their own files, all we have to do is figure
 out how to access the code defined in one file within a different file. Well,
 this is pretty easy to do in React! Introducing IMPORT EXPORT!
 
-![import-meme](https://memegenerator.net/img/instances/11027875/yo-dawg-we-heard-you-like-to-import-data-so-we-put-an-export-feature-into-your-data-import-maps-so-y.jpg)
-
 ## Import and Export
 
 On a simplified level, `import` and `export` enable us to use code from one file
