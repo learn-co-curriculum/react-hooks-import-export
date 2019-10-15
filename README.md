@@ -187,7 +187,7 @@ export function gryffMascot() {
 }
 ```
 
-We can then `import` specific exports from a file using their original name, or
+We can then `import` exports from a file using their original name, or
 by explicitly assigning them a new one. Let's look at an example:
 
 ```js
@@ -204,9 +204,11 @@ values()
 // > ReferenceError: values is not defined
 ```
 
-Since we did not explicitly export `values` in our `Gryffindor.js` file, we were
-unable to have access to the function in `Hogwarts.js`. Other functions
-_within_ `Hogwarts.js` can still call `values`, though.
+We will go into detail on the `import` line in just a moment, but briefly: 
+`import * from './houses/Gryffindor.js'` imports everything from `./houses/Gryffindor.js` 
+that is _exported_. Since we did not explicitly export `values` in our `Gryffindor.js` 
+file, we were unable to have access to the function in `Hogwarts.js`. Other 
+imported functions _within_ `Hogwarts.js` can still call `values`, though.
 
 We can also move named exports to the bottom of a file:
 
