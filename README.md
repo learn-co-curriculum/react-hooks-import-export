@@ -35,14 +35,12 @@ React makes the modularization of code easy by introducing the component
 structure.
 
 ```js
-class Hogwarts extends React.Component {
-	render() {
-		return (
-			<div className="Hogwarts">
-				"Harry. Did you put your name in the Goblet of Fire?"
-			</div>
-		);
-	}
+function Hogwarts() {
+	return (
+		<div className="Hogwarts">
+			"Harry. Did you put your name in the Goblet of Fire?"
+		</div>
+	);
 }
 ```
 
@@ -120,10 +118,8 @@ so...
 // src/houses/Hufflepuff.js
 import React from 'react';
 
-export default class Hufflepuff extends React.Component {
-	render() {
-		return <div>NOBODY CARES ABOUT US</div>;
-	}
+export default function Hufflepuff() {
+	return <div>NOBODY CARES ABOUT US</div>;
 }
 ```
 
@@ -135,16 +131,17 @@ using whatever naming convention that we see fit:
 import React from 'react';
 import HooflePoof from './houses/Hufflepuff.js';
 
-export default class Hogwarts extends React.Component {
-	render() {
-		return (
-			<div>
-				<HooflePoof />
-				//> Will render `NOBODY CARES ABOUT US`, even though we renamed `Hufflepuff`
-				// to `HooflePoof`
-			</div>
-		);
-	}
+export default function Hogwarts() {
+	
+	return (
+		<div>
+			<HooflePoof />
+			{/*
+				Will render `NOBODY CARES ABOUT US`, even though we renamed `Hufflepuff`
+				to `HooflePoof`
+			*/}
+		</div>
+	);
 }
 ```
 
@@ -155,7 +152,7 @@ You will commonly see a slightly different way of writing this:
 import React from 'react'
 import HooflePoof from './houses/Hufflepuff.js'
 
-class Hogwarts extends React.Component{
+function Hogwarts() {
   ...
 }
 
@@ -266,12 +263,12 @@ colors()
 // > 'Scarlet and Gold'
 ```
 
-#### import {function()} from
+#### import { variable } from
 
-`import { function() } from` allows us to grab a specific function by name, and
-use that function within the body of a new module.
+`import { variable } from` allows us to grab a specific variable/function by name, and
+use that variable/function within the body of a new module.
 
-We're able to reference the function imported by its previously declared name:
+We're able to reference the variable imported by its previously declared name:
 
 ```js
 // src/Hogwarts.js
@@ -310,17 +307,15 @@ import Ravenclaw from './houses/Ravenclaw';
 import Hufflepuff from './houses/Hufflepuff';
 import Slytherin from './houses/Slytherin';
 
-export default class Hogwarts extends React.Component {
-	render() {
-		return (
-			<div>
-				<Gryffindor />
-				<Ravenclaw />
-				<Hufflepuff />
-				<Slytherin />
-			</div>
-		);
-	}
+export default function Hogwarts() {
+	return (
+		<div>
+			<Gryffindor />
+			<Ravenclaw />
+			<Hufflepuff />
+			<Slytherin />
+		</div>
+	);
 }
 ```
 
