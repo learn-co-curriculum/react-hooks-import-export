@@ -18,7 +18,7 @@ is responsible for a feature or specific functionality.
 
 Developers separate their code into modules for many reasons:
 
-- **Adhere to the single-responsiblity principle**
+- **Adhere to the single-responsibility principle**
   - Each module is responsible for accomplishing a certain piece of
     functionality, or adding a specific feature to the application
 - **Easier to navigate**
