@@ -316,5 +316,3 @@ that are in our project.
 
 [import]: https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/import
 [export]: https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-modular-code'>Modular Code</a> on Learn.co and start learning to code for free.</p>
