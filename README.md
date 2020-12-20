@@ -66,14 +66,14 @@ On a simplified level, `import` and `export` enable us to use code from one file
 in other locations across our projects, which becomes increasingly important as
 we build out larger applications. Let's look at how we can do this.
 
-#### Export
+### Export
 
 Exporting a component, or module of code, allows us to call upon that
 `export`-ed variable in other files, and use the embedded code within other
 modules. There are two ways to `export` code in JavaScript: we can use the
 `export default` syntax or we can explicitly name our exports.
 
-###### Export Default
+#### Export Default
 
 We can only use `export default` once per module. The syntax allows us to rename
 variables, if we so choose, when we want to import the given module.
@@ -158,7 +158,7 @@ export default Hogwarts;
 Moving all `export` statements to the bottom can make it easier to find exactly
 what a file is exporting.
 
-###### Named Exports
+#### Named Exports
 
 With named exports, we can export multiple pieces of code from within a module,
 allowing us to call on them explicitly when we `import`.
@@ -223,7 +223,7 @@ function gryffMascot() {
 export { colors, gryffMascot };
 ```
 
-## Import
+### Import
 
 The `import` keyword is what enables us to take modules that we've exported and
 use them in other files throughout our applications. There are many ways to
@@ -279,7 +279,7 @@ mascot();
 // > 'The Lion'
 ```
 
-## Importing Node Modules
+#### Importing Node Modules
 
 ```js
 // src/Hogwarts.js
