@@ -1,6 +1,4 @@
-function colors() {
-  console.log("Scarlet and Gold");
-}
+const colors = "Scarlet and Gold";
 
 function values() {
   console.log("Courage, Bravery, Nerve and Chivalry");

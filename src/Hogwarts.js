@@ -1,27 +1,23 @@
 import React from "react";
-import whoseHouse from "./houses/HagridsHouse";
-import HooflePoof from "./houses/Hufflepuff";
+import whoseHouse from "./houses/whoseHouse";
+import Hufflepuff from "./houses/Hufflepuff";
 import * as GryffFunctions from "./houses/Gryffindor";
 
-GryffFunctions.colors();
+console.log(GryffFunctions.colors);
 // => 'Scarlet and Gold'
 
 GryffFunctions.gryffMascot();
 // => 'The Lion'
 
-GryffFunctions.values();
-// => ReferenceError: values is not defined
+// GryffFunctions.values();
+// => Attempted import error
 
 export default function Hogwarts() {
   whoseHouse();
 
   return (
     <div>
-      <HooflePoof />
-      {/*
-				Will render `NOBODY CARES ABOUT US`, even though we renamed `Hufflepuff`
-				to `HooflePoof`
-			*/}
+      <Hufflepuff />
     </div>
   );
 }
