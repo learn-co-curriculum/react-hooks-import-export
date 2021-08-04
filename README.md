@@ -38,7 +38,7 @@ Developers separate their code into modules for many reasons:
 React makes the modularization of code easy by introducing the component
 structure.
 
-```js
+```jsx
 function Hogwarts() {
   return (
     <div className="Hogwarts">
@@ -98,7 +98,7 @@ export default whoseHouse;
 
 We can then use `import` to make use of that function elsewhere:
 
-```js
+```jsx
 // src/Hogwarts.js
 import React from "react";
 import whoseHouse from "./houses/whoseHouse";
@@ -113,7 +113,7 @@ function Hogwarts() {
 `export default` allows us to name the exported code whatever we want when
 importing it:
 
-```js
+```jsx
 // src/Hogwarts.js
 import React from "react";
 import aDifferentName from "./houses/whoseHouse";
@@ -134,7 +134,7 @@ Since React components are also just functions, we can export them too! You'll
 typically have just one React component per file, so it makes sense to use the
 `export default` syntax with React components, like so:
 
-```js
+```jsx
 // src/houses/Hufflepuff.js
 import React from "react";
 
@@ -148,7 +148,7 @@ export default Hufflepuff;
 Then, we can import the entire component to any other file in our application,
 using whatever naming convention that we see fit:
 
-```js
+```jsx
 // src/Hogwarts.js
 import React from "react";
 import Hufflepuff from "./houses/Hufflepuff";
@@ -311,7 +311,7 @@ mascot();
 
 #### Importing Node Modules
 
-```js
+```jsx
 // src/Hogwarts.js
 import React from "react";
 import whoseHouse from "./houses/whoseHouse";
