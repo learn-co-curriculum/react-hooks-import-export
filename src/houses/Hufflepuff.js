@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Hufflepuff() {
+function Hufflepuff() {
   return <div>NOBODY CARES ABOUT US</div>;
 }
+
+export default Hufflepuff;
