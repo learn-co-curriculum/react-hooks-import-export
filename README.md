@@ -8,7 +8,7 @@
 
 ## Introduction
 
-In this lesson we'll discuss the ES6 keywords `import` and `export` and how they
+In this lesson we'll discuss the `import` and `export` keywords and how they
 allow us to share JavaScript code across multiple files.
 
 ## Modular Code
@@ -19,7 +19,7 @@ is responsible for a feature or specific functionality.
 Developers separate their code into modules for many reasons:
 
 - **Stricter variable scope**
-  - Variables that is declared in modules are private unless they are explicitly
+  - Variables declared in modules are private unless they are explicitly
     exported, so by using modules, you don't have to worry about polluting the
     global variable scope
 - **Adhere to the single-responsibility principle**
@@ -62,19 +62,20 @@ not uncommon to see a React program file tree that looks something like this:
 
 With our components separated in their own files, all we have to do is figure
 out how to access the code defined in one file within a different file. Well,
-this is pretty easy to do in modern JavaScript! Introducing `import` and `export`!
+this is easily done in modern JavaScript using `import` and `export`!
 
 ## Import and Export
 
 On a simplified level, `import` and `export` enable us to use code from one file
 in other locations across our projects, which becomes increasingly important as
-we build out larger applications. Let's look at how we can do this.
+we build out larger applications. Let's look at how we can do this. Fork and
+clone the repo for this lesson if you'd like to follow along with the examples.
 
 ### Export
 
 Since variables in modules are not visible to other modules by default, we must
 explicitly state which variables should be made available to the rest of our
-application. Exporting a component, or module of code, allows us to call upon
+application. Exporting a component — or module of code — allows us to call upon
 that `export`-ed variable in other files, and use the embedded code within other
 modules. There are two ways to `export` code in JavaScript: we can use the
 `export default` syntax or we can explicitly name our exports.
@@ -96,7 +97,7 @@ function whoseHouse() {
 export default whoseHouse;
 ```
 
-We can then use `import` to make use of that function elsewhere:
+This enables us to use `import` to make use of that function elsewhere:
 
 ```jsx
 // src/Hogwarts.js
@@ -165,7 +166,7 @@ export default Hogwarts;
 ```
 
 You may come across a slightly different way of writing this, with
-`export default` written directly next to the name of the function:
+`export default` written directly in front of the name of the function:
 
 ```js
 export default function Hogwarts() {
@@ -199,12 +200,11 @@ function gryffMascot() {
 export { colors, gryffMascot };
 ```
 
-We can then `import` exports from a file using their original name, or
-by explicitly assigning them a new one. Let's look at an example:
+We can then `import` and use them in another file:
 
 ```js
 // src/Hogwarts.js
-import { colors, gryffMascot } as GryffFunctions from "./houses/Gryffindor";
+import { colors, gryffMascot } from "./houses/Gryffindor";
 
 console.log(colors);
 // => 'Scarlet and Gold'
@@ -236,8 +236,7 @@ use them in other files throughout our applications. There are many ways to
 are trying to access and how we exported it.
 
 In order to import a module into another file, we write out the **relative
-path** to the file that we are trying to get access to. Let's look at some
-examples:
+path** to the file that we are trying to access. Let's look at some examples.
 
 #### import \* from
 
@@ -283,7 +282,7 @@ directory, then navigate to `houses`, where we'll find `Gryffindor.js`.
 `import { variable } from` allows us to grab a specific variable/function by
 name, and use that variable/function within the body of a new module.
 
-We're able to reference the variable imported by its previously declared name:
+We're able to reference the imported variable by its previously declared name:
 
 ```js
 // src/Hogwarts.js
@@ -296,13 +295,14 @@ gryffMascot();
 // > 'The Lion'
 ```
 
-...or rename it inside of our `import` statement:
+We can also rename any or all of the variables inside of our `import`
+statement:
 
 ```js
 // src/Hogwarts.js
-import { colors, gryffMascot as mascot } from "./houses/Gryffindor";
+import { colors as houseColors, gryffMascot as mascot } from "./houses/Gryffindor";
 
-console.log(colors);
+console.log(houseColors);
 // > 'Scarlet and Gold'
 
 mascot();
@@ -331,7 +331,7 @@ Take a look at the first line of code in this file: `import React from 'react'`.
 Here, we are referencing the React library's default export. The React library
 is located inside of the `node_modules` directory, a specific folder in many
 Node projects that holds packages of third-party code. Any time we are using
-code from a npm package, we must also import it in whatever file we're using it
+code from an npm package, we must also import it in whatever file we're using it
 in.
 
 ## Conclusion
