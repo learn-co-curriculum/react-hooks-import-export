@@ -40,11 +40,7 @@ structure.
 
 ```jsx
 function ColoradoStateParks() {
-  return (
-    <h1>
-      Colorado State Parks!
-    </h1>
-  );
+  return <h1>Colorado State Parks!</h1>;
 }
 ```
 
@@ -95,7 +91,6 @@ function howManyParks() {
 }
 
 export default howManyParks;
-
 ```
 
 This enables us to use `import` to make use of that function elsewhere:
@@ -249,7 +244,7 @@ given module. This syntax looks like:
 import * as RMFunctions from "./parks/RockyMountain";
 
 console.log(RMFunctions.trees);
-// > "Aspen and Pine"
+// => "Aspen and Pine"
 
 RMFunctions.wildlife();
 // => "Elk, Bighorn Sheep, Moose"
@@ -301,7 +296,10 @@ statement:
 
 ```js
 // src/ColoradoStateParks.js
-import { trees as parkTrees, wildlife as parkWildlife } from "./parks/RockyMountain";
+import {
+  trees as parkTrees,
+  wildlife as parkWildlife,
+} from "./parks/RockyMountain";
 
 console.log(parkTrees);
 // > "Aspen and Pine"
