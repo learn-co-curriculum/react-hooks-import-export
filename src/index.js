@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Hogwarts from "./Hogwarts";
+import ColoradoStateParks from "./ColoradoStateParks";
 
-ReactDOM.render(<Hogwarts />, document.getElementById("root"));
+ReactDOM.render(<ColoradoStateParks />, document.getElementById("root"));

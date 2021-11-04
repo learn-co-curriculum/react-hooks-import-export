@@ -39,12 +39,8 @@ React makes the modularization of code easy by introducing the component
 structure.
 
 ```jsx
-function Hogwarts() {
-  return (
-    <div className="Hogwarts">
-      "Harry. Did you put your name in the Goblet of Fire?"
-    </div>
-  );
+function ColoradoStateParks() {
+  return <h1>Colorado State Parks!</h1>;
 }
 ```
 
@@ -56,8 +52,8 @@ not uncommon to see a React program file tree that looks something like this:
 ├── public
 └── src
      ├── App.js
-     ├── Hogwarts.js
-     └── Houses.js
+     ├── ColoradoStateParks.js
+     └── parks
 ```
 
 With our components separated in their own files, all we have to do is figure
@@ -88,26 +84,26 @@ one variable from a module which we can then import in another file.
 For example:
 
 ```js
-// src/houses/whoseHouse.js
+// src/parks/howManyParks.js
 
-function whoseHouse() {
-  console.log("HAGRID'S HOUSE!");
+function howManyParks() {
+  console.log("42 parks!");
 }
 
-export default whoseHouse;
+export default howManyParks;
 ```
 
 This enables us to use `import` to make use of that function elsewhere:
 
 ```jsx
-// src/Hogwarts.js
+// src/ColoradoStateParks.js
 import React from "react";
-import whoseHouse from "./houses/whoseHouse";
+import howManyParks from "./parks/howManyParks";
 
-function Hogwarts() {
-  whoseHouse(); // => "HAGRID'S HOUSE!"
+function ColoradoStateParks() {
+  howManyParks(); // => "42 parks!"
 
-  return <h1>Welcome to Hogwarts!</h1>;
+  return <h1>Colorado State Parks!</h1>;
 }
 ```
 
@@ -115,14 +111,14 @@ function Hogwarts() {
 importing it:
 
 ```jsx
-// src/Hogwarts.js
+// src/ColoradoStateParks.js
 import React from "react";
-import aDifferentName from "./houses/whoseHouse";
+import aDifferentName from "./parks/howManyParks";
 
-function Hogwarts() {
-  aDifferentName(); // => "HAGRID'S HOUSE!"
+function ColoradoStateParks() {
+  aDifferentName(); // => "42 parks!"
 
-  return <h1>Welcome to Hogwarts!</h1>;
+  return <h1>Colorado State Parks!</h1>;
 }
 ```
 
@@ -136,40 +132,40 @@ typically have just one React component per file, so it makes sense to use the
 `export default` syntax with React components, like so:
 
 ```jsx
-// src/houses/Hufflepuff.js
+// src/parks/MesaVerde.js
 import React from "react";
 
-function Hufflepuff() {
-  return <div>NOBODY CARES ABOUT US</div>;
+function MesaVerde() {
+  return <h1>Mesa Verde National Park</h1>;
 }
 
-export default Hufflepuff;
+export default MesaVerde;
 ```
 
 Then, we can import the entire component to any other file in our application,
 using whatever naming convention that we see fit:
 
 ```jsx
-// src/Hogwarts.js
+// src/ColoradoStateParks.js
 import React from "react";
-import Hufflepuff from "./houses/Hufflepuff";
+import MesaVerde from "./parks/MesaVerde";
 
-function Hogwarts() {
+function ColoradoStateParks() {
   return (
     <div>
-      <Hufflepuff />
+      <MesaVerde />
     </div>
   );
 }
 
-export default Hogwarts;
+export default ColoradoStateParks;
 ```
 
 You may come across a slightly different way of writing this, with
 `export default` written directly in front of the name of the function:
 
 ```js
-export default function Hogwarts() {
+export default function ColoradoStateParks() {
   // ...
 }
 ```
@@ -186,45 +182,45 @@ allowing us to call on them explicitly when we `import`.
 Named exports allow us to export several specific things at once:
 
 ```js
-// src/houses/Gryffindor.js
-const colors = "Scarlet and Gold";
+// src/parks/RockyMountain.js
+const trees = "Aspen and Pine";
 
-function values() {
-  console.log("Courage, Bravery, Nerve and Chivalry");
+function wildlife() {
+  console.log("Elk, Bighorn Sheep, Moose");
 }
 
-function gryffMascot() {
-  console.log("The Lion");
+function elevation() {
+  console.log("9583 ft");
 }
 
-export { colors, gryffMascot };
+export { trees, wildlife };
 ```
 
 We can then `import` and use them in another file:
 
 ```js
-// src/Hogwarts.js
-import { colors, gryffMascot } from "./houses/Gryffindor";
+// src/ColoradoStateParks.js
+import { trees, wildlife } from "./parks/RockyMountain";
 
-console.log(colors);
-// => 'Scarlet and Gold'
+console.log(trees);
+// => "Aspen and Pine"
 
-gryffMascot();
-// => 'The Lion'
+wildlife();
+// => "Elk, Bighorn Sheep, Moose"
 ```
 
 We can also write named exports next to the function definition:
 
 ```js
-// src/houses/Gryffindor.js
-export const colors = "Scarlet and Gold";
+// src/parks/RockyMountain.js
+export const trees = "Aspen and Pine";
 
-function values() {
-  console.log("Courage, Bravery, Nerve and Chivalry");
+export function wildlife() {
+  console.log("Elk, Bighorn Sheep, Moose");
 }
 
-export function gryffMascot() {
-  console.log("The Lion");
+function elevation() {
+  console.log("9583 ft");
 }
 ```
 
@@ -244,38 +240,38 @@ path** to the file that we are trying to access. Let's look at some examples.
 given module. This syntax looks like:
 
 ```js
-// src/Hogwarts.js
-import * as GryffFunctions from "./houses/Gryffindor";
+// src/ColoradoStateParks.js
+import * as RMFunctions from "./parks/RockyMountain";
 
-console.log(GryffFunctions.colors);
-// > 'Scarlet and Gold'
+console.log(RMFunctions.trees);
+// => "Aspen and Pine"
 
-GryffFunctions.gryffMascot();
-// => 'The Lion'
+RMFunctions.wildlife();
+// => "Elk, Bighorn Sheep, Moose"
 
-GryffFunctions.values();
+RMFunctions.elevation();
 // => Attempted import error
 ```
 
 In the example above, we're importing all the exported variables from file
-`Gryffindor.js` as properties on an object called `GryffFunctions`. Since
-`values` is not exported, trying to use that function will result in an error.
+`RockyMountain.js` as properties on an object called `RMFunctions`. Since
+`elevation` is not exported, trying to use that function will result in an error.
 
-We are using the **relative path** to navigate from `src/Hogwarts.js` to
-`src/houses/Gryffindor.js`. Since our file structure looks like this:
+We are using the **relative path** to navigate from `src/ColoradoStateParks.js` to
+`src/parks/RockyMountain.js`. Since our file structure looks like this:
 
 ```txt
 └── src
-     ├── houses
-     |   ├── Gryffindor.js
-     |   ├── Hufflepuff.js
-     |   └── whoseHouse.js
-     ├── Hogwarts.js
+     ├── parks
+     |   ├── RockyMountain.js
+     |   ├── MesaVerde.js
+     |   └── howManyParks.js
+     ├── ColoradoStateParks.js
      └── index.js
 ```
 
-To get from `Hogwarts.js` to `Gryffindor.js`, we can stay in the `src`
-directory, then navigate to `houses`, where we'll find `Gryffindor.js`.
+To get from `ColoradoStateParks.js` to `RockyMountain.js`, we can stay in the `src`
+directory, then navigate to `parks`, where we'll find `RockyMountain.js`.
 
 #### import { variable } from
 
@@ -285,43 +281,46 @@ name, and use that variable/function within the body of a new module.
 We're able to reference the imported variable by its previously declared name:
 
 ```js
-// src/Hogwarts.js
-import { colors, gryffMascot } from "./houses/Gryffindor";
+// src/ColoradoStateParks.js
+import { trees, wildlife } from "./parks/RockyMountain";
 
-console.log(colors);
-// > 'Scarlet and Gold'
+console.log(trees);
+// > "Aspen and Pine"
 
-gryffMascot();
-// > 'The Lion'
+wildlife();
+// > "Elk, Bighorn Sheep, Moose"
 ```
 
 We can also rename any or all of the variables inside of our `import`
 statement:
 
 ```js
-// src/Hogwarts.js
-import { colors as houseColors, gryffMascot as mascot } from "./houses/Gryffindor";
+// src/ColoradoStateParks.js
+import {
+  trees as parkTrees,
+  wildlife as parkWildlife,
+} from "./parks/RockyMountain";
 
-console.log(houseColors);
-// > 'Scarlet and Gold'
+console.log(parkTrees);
+// > "Aspen and Pine"
 
-mascot();
-// > 'The Lion'
+parkWildlife();
+// > "Elk, Bighorn Sheep, Moose"
 ```
 
 #### Importing Node Modules
 
 ```jsx
-// src/Hogwarts.js
+// src/ColoradoStateParks.js
 import React from "react";
-import whoseHouse from "./houses/whoseHouse";
-import Hufflepuff from "./houses/Hufflepuff";
-import * as GryffFunctions from "./houses/Gryffindor";
+import howManyParks from "./parks/howManyParks";
+import MesaVerde from "./parks/MesaVerde";
+import * as RMFunctions from "./parks/RockyMountain";
 
-export default function Hogwarts() {
+export default function ColoradoStateParks() {
   return (
     <div>
-      <HooflePoof />
+      <MesaVerdePark />
     </div>
   );
 }
