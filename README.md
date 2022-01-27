@@ -61,7 +61,7 @@ keywords!
 
 ## Import and Export
 
-On a simplified level, the `import` and `export` keywords let us to define
+On a simplified level, the `import` and `export` keywords let us define
 variables in one file, and access those variables in other files throughout our
 project. This becomes increasingly important as we build out larger
 applications. Let's look at how we can do this.
