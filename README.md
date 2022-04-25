@@ -2,9 +2,9 @@
 
 ## Learning Goals
 
-- Understand why it's important to split up our code into smaller files
-- Learn how `import` and `export` support our ability to build modular code
-- Understand the different ways to import and export code
+- Understand why it's important to split up our code into smaller files.
+- Learn how `import` and `export` support our ability to build modular code.
+- Understand the different ways to import and export code.
 
 ## Introduction
 
@@ -20,15 +20,15 @@ Developers separate their code into modules for many reasons:
 
 - **Stricter variable scope**: Variables declared in modules are private unless
   they are explicitly exported, so by using modules, you don't have to worry
-  about polluting the global variable scope
+  about polluting the global variable scope.
 - **Single-responsibility principle**: Each module is responsible for
   accomplishing a certain piece of functionality, or adding a specific feature
-  to the application
+  to the application.
 - **Easier to navigate**: Modules that are separated and clearly named make code
-  more readable for other developers
-- **Easier to debug**: Bugs have less room to hide in isolated, contained code
+  more readable for other developers.
+- **Easier to debug**: Bugs have less room to hide in isolated, contained code.
 - **Produce clean and DRY code**: Modules can be reused and repurposed
-  throughout applications
+  throughout applications.
 
 ## Modularizing React Code
 
