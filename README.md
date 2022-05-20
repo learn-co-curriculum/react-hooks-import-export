@@ -97,7 +97,7 @@ function howManyParks() {
 export default howManyParks;
 ```
 
-Once we've exported the variable, we can use the `import` keyword access that
+Once we've exported the variable, we can use the `import` keyword to access that
 variable in another file:
 
 ```jsx
@@ -147,7 +147,7 @@ function MesaVerde() {
 export default MesaVerde;
 ```
 
-Then, we can import the entire component to any other file in our application,
+Then, we can import the entire component into any other file in our application,
 using whatever naming convention that we see fit:
 
 ```jsx
@@ -322,7 +322,7 @@ import * as RMFunctions from "./parks/RockyMountain";
 export default function ColoradoStateParks() {
   return (
     <div>
-      <MesaVerdePark />
+      <MesaVerde />
     </div>
   );
 }
